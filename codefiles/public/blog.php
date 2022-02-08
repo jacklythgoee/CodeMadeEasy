@@ -2,7 +2,7 @@
 
 $data = [
     'title' => 'Blog',
-    'extra_css' => [
+    'extra_css1' => [
         'mainframe.css',
         'blog.css',
         'footer.css',

@@ -2,7 +2,7 @@
 
 $data = [
     'title' => 'Get Started',
-    'extra_css' => [
+    'extra_css1' => [
         'mainframe.css',
         'getStarted.css',
         'footer.css',

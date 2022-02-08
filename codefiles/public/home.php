@@ -2,7 +2,7 @@
 
 $data = [
     'title' => 'CodeHeads',
-    'extra_css' => [
+    'extra_css1' => [
         'mainframe.css',
         'home.css',
         'course.css',

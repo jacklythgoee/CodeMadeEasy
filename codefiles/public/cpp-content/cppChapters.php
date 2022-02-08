@@ -2,7 +2,7 @@
 
 $data = [
     'title' => 'C++ Chapters',
-    'extra_css' => [
+    'extra_css2' => [
         'mainframe.css',
         'cppChapters.css',
         'footer.css',

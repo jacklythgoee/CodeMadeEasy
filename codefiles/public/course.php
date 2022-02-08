@@ -2,7 +2,7 @@
 
 $data = [
     'title' => 'Available Courses',
-    'extra_css' => [
+    'extra_css1' => [
         'mainframe.css',
         'course.css',
         'helped.css',

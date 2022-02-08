@@ -2,7 +2,7 @@
 
 $data = [
     'title' => 'Contact Us',
-    'extra_css' => [
+    'extra_css1' => [
         'mainframe.css',
         'contact.css',
         'footer.css',
