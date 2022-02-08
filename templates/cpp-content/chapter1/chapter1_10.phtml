@@ -1,0 +1,241 @@
+
+    <body>
+        <div class="bg-color"><!--bg color Start-->
+
+            <section class="top-bar">
+                <nav>
+                    <div class="nav-links" id="navLinks">
+                        <i class="fas fa-times" onclick="hideMenu()"></i>
+                        <ul>
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="../about.html">ABOUT</a></li>
+                            <li><a href="../course.html">COURSE</a></li>
+                            <li><a href="../getStarted.html">GET STARTED</a></li>
+                            <li><a href="../blog.html">BLOG</a></li>
+                            <li><a href="../contact.html">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <i class="fas fa-bars" onclick="showMenu()"></i>
+                </nav>
+            </section>
+            <section class="lesson-content">
+
+                <div class="lesson-container">
+                    <div class="content">
+                        <h1>Chapter 1.10 - Expressions</h1>
+                        <hr>
+
+                        <div class="part-content">
+                            <p>
+                                An <b>expression</b> is a combination of literals, variables, operators, and explicit function calls that produce a 
+                                single output value. When an expression Is executed, each of the terms in the expression is evaluated until a 
+                                single value remains (this process is called <b>evaluation</b>). That single value is the <b>result</b> of the expression.
+                            </p>
+                            <p>
+                                Here are some examples of different kinds of expressions, with comments indicating how they evaluate:
+                            </p>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        2                                //2 is a literal that evaluates to value 2
+                                        "Hello World!"          //"Hello World!" is a literal that evaluates to text "Hello World!"
+                                        X                               //X is a variable that evaluates to the value of X
+                                        2+3                          //2 + 3 uses operator + to evaluate to value 5
+                                        x = 2 + 3                 //2 + 3 evaluates to value 5, which is then assigned to variable X
+                                        std::cout << X       //X evaluates to the value of x, which is then printed to the console
+                                    </code>
+                                </pre>
+                            <p>
+                                As you can see, literals evaluate to their own values. Variables evaluate to the value of the variable. 
+                                We have not covered function calls yet, but in the context of expression, function calls evaluate whatever value the function returns. 
+                                And operators let us combine multiple values to produce a new value.
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Key Insight</mark> - wherever you can use a single value in C++, you can use an expression  
+                                instead, and the compiler will resolve the expression down to a single value.
+                            </div>
+
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Expression Statements</h2>
+                            <p>
+                                An expression statement is a statement that consists of an expression followed by a semicolon. 
+                                When the statement is executed, the expression will be evaluated, and the result of the expression will be discarded.
+                            </p>
+                            <div class="lesson-rule">
+                                <mark>Rule</mark> - Values calculated in expressions are discard at the end of the expression
+                            </div>
+
+                        </div>
+
+                        <div class="part-content quiz">
+
+                            <h2>Chapter 1.10 End of Topic Quiz</h2>
+                            <p>
+                                The following quiz is meant to reinforce your understanding of the material presented above.
+                            </p>
+<!-- --------------------------------------------------Question 1 Start --------------------------------------------------------------------------------- -->
+                                <h4 class="quiz-question">1. What is the difference between a statement and an expression?</h4>
+                                <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                                <p id="answer">
+                                    <b>Statements</b> are used when we want the program to perform an action. Expressions are used when 
+                                    we want the program to calculate a value.
+                                </p>
+                                <br><br><hr>
+
+<!-- ------------------------------------------------Question 2 Start --------------------------------------------------------------------------------- -->
+                                <h4 class="quiz-question">2. Indicate whether each of the following lines are statements that do not contain expressions, 
+                                    statements that contain expressions, or are expression statements.</h4>
+<!------------------------------------------------------- A ---------------------------------------------------------------------------------------------->
+                                <h4>A - </h4>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        int x;
+                                    </code>
+                                </pre>
+                                <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                                <p id="answer">
+                                    Statement does not contain an expression (this is just a variable definition)
+                                </p>
+<!------------------------------------------------------- B---------------------------------------------------------------------------------------------->
+                                <h4>B - </h4>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        int x = 5;
+                                    </code>
+                                </pre>
+                                <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                                <p id="answer">
+                                    Statement contains an expression (The right hand side of the equals side is an expression containing a single value, 
+                                    but the rest of the statement isn’t an expression)
+                                </p>
+<!------------------------------------------------------- B---------------------------------------------------------------------------------------------->
+                                <h4>C - </h4>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        x = 5;
+                                    </code>
+                                </pre>
+                                <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                                <p id="answer">
+                                    Expression statement (the entire statement is an expression, terminated by a semicolon)
+                                </p>
+<!------------------------------------------------------- B---------------------------------------------------------------------------------------------->
+                                <h4>D - (Extra Credit) </h4>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        std::cout << x; // Hint: operator<< is a binary operator.
+                                    </code>
+                                </pre>
+                                <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                                <p id="answer">
+                                    If operator<< is a binary operator, then std::cout must be the left-hand operand, and x must be the right-hand operand. 
+                                    Since that’s the entire statement, this must be an expression statement.
+                                </p>                               
+                                <br><br><hr>
+
+                        </div>
+                        
+                    </div>
+
+                        <div class="prev-next">
+                            <div class="prev-next-inline">
+                                <a class="nav-link" href="chapter1_11.html">
+                                    <div class="nav-button nav-button-next">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Next Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">1.11</span>
+                                                Developing your First Program
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="../cplusChapter.html">
+                                    <div class="nav-button nav-button-index">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-home" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Back to Table of Contents</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="chapter1_9.html">
+                                    <div class="nav-button nav-button-prev">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Previous Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">1.9</span>
+                                                Introduction to Literals and Operators
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+                </div>
+
+
+         </div>
+                
+            </section>
+    
+            <!-- Footer -->
+            <section class="footer">
+                <h4>About Us</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                <div class="icons">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-instagram-square"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <p>
+                    Made with <i class="fab fa-facebook-square"></i> Easy Tutorials
+                </p>
+            </section>
+
+         </div> <!--bg color End -->
+        
+
+
+     <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+     </script>
+     <script>
+        function show_hide(element)
+        {
+           var myAnswer = element.nextElementSibling;
+
+           var displaySetting = myAnswer.style.display;
+
+           var quizButton = element;
+
+           if(displaySetting=="inline-block"){
+               myAnswer.style.display = 'none';
+
+               quizButton.innerHTML = 'Show Solution';
+           }
+           else
+           {
+               myAnswer.style.display = 'inline-block';
+               quizButton.innerHTML = 'Hide Solution';
+           }
+        }
+    </script>
+    </body>

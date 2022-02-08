@@ -1,0 +1,428 @@
+
+    <body>
+        <div class="bg-color"><!--bg color Start-->
+
+            <section class="top-bar">
+                <nav>
+                    <div class="nav-links" id="navLinks">
+                        <i class="fas fa-times" onclick="hideMenu()"></i>
+                        <ul>
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="../about.html">ABOUT</a></li>
+                            <li><a href="../course.html">COURSE</a></li>
+                            <li><a href="../getStarted.html">GET STARTED</a></li>
+                            <li><a href="../blog.html">BLOG</a></li>
+                            <li><a href="../contact.html">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <i class="fas fa-bars" onclick="showMenu()"></i>
+                </nav>
+            </section>
+            <section class="lesson-content">
+
+                <div class="lesson-container">
+                    <div class="content">
+                        <h1>Chapter 2.10 - Header Files</h1>
+                        <hr>
+
+                        <div class="part-content">
+                            <h2>Headers, and their purpose</h2>
+                            <p>
+                                As programs grow larger and make use of more files, it becomes increasingly tedious 
+                                to have to forward declare every function you want to use that is defined in a different 
+                                file. Wouldn’t it be nice if you could put all your forward declarations in one place and 
+                                then import them when you need them?
+                            </p>
+                            <p>
+                                C++ code files are not the only files commonly seen in C++ programs. The other type of file is 
+                                called a header file. Header files usually have a .h extension, but you will occasionally see them 
+                                with a .hpp extension or no extension at all . the primary purpose of a header file is to propagate declarations to code files.
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Key Insight</mark> - Header files allow is to put declarations in one location and then Import them 
+                                wherever we need them. This can save a lot of typing in multi-file programs.
+                            </div>
+                            <p>
+                                Consider what would happen if the iostream header did not exist. Wherever you used std::cout, you would have to 
+                                manually type of copy in all of the declarations related to std::cout into the top of each file that used std::cout! 
+                                This would require a lot of knowledge about std::cout was implemented and would be a ton of work. Even worse, 
+                                if a function prototype changed, we would have to go manually update all of the forward declarations. It’s 
+                                much easier to just #include iostream!
+                            </p>
+                            <div class="split-content">
+                                <p>
+                                    When it comes to functions and variables, it’s worth keeping in mind that header files typically only 
+                                    contain function and variable declarations, not function and variable definitions (otherwise a violation 
+                                    of the one definition rule could result). Std::cout is forward declared in the iostream header, but defined 
+                                    as part of the C++ Standard library, which is automatically linked into your program during the linker phase.
+                                </p>
+                                <img src="../../public/images/Chapter2/Picture2.png" class="chap-2-picture2">
+                            </div>
+                            <div class="lesson-practice">
+                                <mark>Best Practice</mark> -  header files should generally not contain function and variable definitions, 
+                                so as not to violate the one definition rule. An Exception is made for symbolic constants.
+                            </div>
+
+                        </div>
+
+                        <div class="part-content">
+                            <h2>Writing your Own Header Files</h2>
+                            <p>
+                                Now we will go to our previous example we used. Main.cpp and add.cpp. in this example 
+                                we used a forward declaration, so that the compiler will know what identifier add is when 
+                                compiling main.cpp. As previously mentioned, manually adding forward declarations for every 
+                                function you want to use that lives in another file can get tedious quickly.
+                            </p>
+                            <p>
+                                Let us now write a header file to relieve us of this burden. Writing a header file is surprisingly easy, as 
+                                header files only consist of two parts<br>
+                                <b>1</b> - A header Guard<br>
+                                <b>2</b> - The actual content of the header file, which should be the forward declarations for all of the 
+                                identifiers we want other files to be able to see.
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Best Practice</mark> - Use a .h suffix when naming your header files...<br>
+                                If a header file is paired with a code file, they should both have the same base name ( e.g., add.h and add.cpp)
+                            </div>
+                            <p>
+                                Here is our completed header file:
+                            </p>
+                                <pre class="content-half">
+                                    <code class="language-cpp line-numbers">
+                                        /* 1) We really should have a header guard here, but will omit it for simplicity (we'll cover header
+                                        guards in the next lesson */
+                                        
+                                        // 2) This is the content of the .h file, which is where the declarations go
+                                        int add(int x, int y);  //Function prototype for add.h -- Dont forget the semicolon!
+                                    </code>
+                                </pre>
+                            <p>
+                                In order to use this header file in <i>main.cpp</i>, we have to #include it using quotes.          
+                            </p>
+                            <h3>main.cpp</h3>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        #include &#x3C;iostream&#x3E;
+                                        #include "add.h" //Insert contents of add.h at this point. Note use of double quotes here.
+
+                                        int main()
+                                        {
+                                            std::cout << "The sum of 3 and 4 is " << add(3,4) << '\n';
+                                            return 0;
+                                        }
+                                    </code>
+                                </pre>
+                            <h3>add.cpp</h3>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        int add(int x, int y)
+                                        {
+                                            return x + y;
+                                        }
+                                    </code>
+                                </pre>
+                            <p>
+                                When the preprocessor processes the #include “add.h” line, it copies the contents of add.h 
+                                into that current file at that point. Because out add.h contains a forward declaration for 
+                                function add, that forward declaration will be copied into main.cpp. the end result is a program 
+                                that is functionally the same as the one where we manually added the forward declaration at the top of main.cpp<br><br>
+
+                                Consequently, our program will compile and link correctly:
+                            </p>
+                            <img src="../../public/images/Chapter2/picture3.png" class="chap-2-picture3">
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Include a Header in the Corresponding Source File</h2>
+                            <p>
+                                Including the header in the source file increases forward compatibility. It’s very likely 
+                                that in the future, you will add more functions or modify existing ones in a way that they need 
+                                to know about the existence of each other.
+                            </p>
+                            <p>
+                                Once we get more into the standard library, you will be including many library 
+                                headers. If you need an include in a header, you probably need it for a function 
+                                declaration. This means that you will also need the same include in the source file. This 
+                                would lead to you having a copy of your header’s includes in your source file. By 
+                                including your header in your source file, the source file has access to everything the 
+                                header had access to. In Library development, including your header in your source file 
+                                can even help to catch errors early.
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Best Practice</mark> - When writing a source file, include the corresponding header if one exists, 
+                                even if you do not need it.
+                            </div>
+
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Troubleshooting</h2>
+                            <p>
+                                If you get a compiler error indicating that add.h is not found, make 
+                                sure the file is really named add.h. Depending on how you created and named 
+                                it, it is possible the file could have been named something like add(no extension) 
+                                or add.h.txt or add.hpp. also make sure it is sitting in the same directory as the 
+                                rest of your code files.
+                            </p>
+                        
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Angle Brackets vs Double Quotes</h2>
+                            <p>
+                                You are probably curious why we use angled brackets for iostream, and double quotes 
+                                for add.h. it is possible that a header file with the same filename might exist in 
+                                multiple directories. Our use of angled brackets vs double quotes helps give the compiler 
+                                a clue as to where it should look for header files.
+                            </p>
+                            <p>
+                                When we use angled brackets, we are telling the preprocessor that this is a header file we did 
+                                not write ourselves. The compiler will search for the header only in the directories specified 
+                                by the include directories. They include directories are configured as part of your project/IDE 
+                                settings/compiler settings, and typically default to the directories containing the header files 
+                                that come with your compiler and/or OS. The compiler will not search for the header file in your 
+                                projects source code directory.
+                            </p>
+                            <p>
+                                When we use double quotes, we are telling the preprocessor that this is a header file that we wrote.
+                                The compiler will first search for the header file in the current directory. If it cannot 
+                                find a matching header there, it will search the include directories.
+                            </p>
+                            <div class="lesson-rule">
+                                <mark>Rule</mark> - Use double quotes to include header files that you have written or 
+                                are expected to be found in the current directory. Use angled brackets to include headers 
+                                that come with your compiler, OS, or third-party libraries you have installed elsewhere on your system.
+                            </div>
+
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Why doesn't IOSTREAM have a .h extension</h2>
+                            <p>
+                                The answer is that iostream.h is a different header file than iostream. To explain this requires a short history lesson.
+                            </p>
+                            <p>
+                                When C++ was first created, all of the files in the standard runtime library ended in a 
+                                .h suffix. Life was consistent, and it was good. The original version of cout and cin 
+                                were declared in iostream.h. when the language was standardized by the ANSI committee, they 
+                                decided to move all of the functionality in the standard library into the std namespace to 
+                                help avoid naming conflicts with user-defined identifiers. However, this presented a problem: 
+                                if they moved all the functionality into the std namespace, none of the old programs would work anymore.
+                            </p>
+                            <p>
+                                To work around this issue, a new set of header files was introduced that use the same name but lack 
+                                the extension. These new header files have all their functionality inside the std namespace. This way, 
+                                solder programs that include #include <iostream.h> do not need to be rewritten, and newer programs can #include <iostream>.
+                            </p>
+                            <p>
+                                In addition, many of the libraries inherited from C that are still useful in C++ were given a c prefix. 
+                                The functionality from these libraries was also moved into the std namespace to help avoid naming collisions
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Best Practice</mark> - when including a header file from the standard library, use the no extension version If it exists. 
+                                User-defined headers should still use a .h extension.
+                            </div>
+
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Including Header Files from Other Directories</h2>
+                            <p>
+                                Another common question involves how to include header files from other directories.<br>
+
+                                One bad way to do this is to include a relative path to the header file you want to include as part 
+                                of the #include line. For example:
+                            </p>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        #include "headers/myHeader.h"
+                                        #include "../moreHeaders/myOtherHeader.h"
+                                    </code>
+                                </pre>
+                            <p>
+                                While this will compile, the downside of this approach is that it requires you to reflect your directory 
+                                structure in your code. If you ever update your directory structure, your code will not work anymore.
+                            </p>
+                            <p>
+                                A better method is to tell your compiler or IDE that you have a bunch of header files in some other location, 
+                                so that it will look there when it cannot find them in the current directory. This can generally be done by 
+                                setting an include path or search directory in your IDE Project settings.
+                            </p>
+
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Headers may include other headers</h2>
+                            <p>
+                                Its common that a header file will need a declaration or definition that lives in a different header file. 
+                                Because of this header files will often #include other header files. When your code file #includes the first 
+                                header file, you will also get any other header files that the first header file includes. These additional 
+                                header files are sometimes called “transitive includes”, as they are implicitly rather than explicitly.
+                            </p>
+                            <p>
+                                The content of these transitive includes are available for use in your code file. However, you should not 
+                                rely on the content of headers that are included transitively. The implementation of header files may 
+                                change over time or be different across different systems. If that happens, your code may only compile 
+                                on certain systems, or may compile now but not in the future. This is easily avoided by explicitly including 
+                                all of the header files the content of your code file requires.
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Best Practice</mark> - Each file should explicitly #include all of the header files it needs to compile. 
+                                Do not rely on headers included transitively from other headers.
+                            </div>
+                            <p>
+                                Unfortunately, there is no easy way to detect when your code file is accidentally relying on content of a header 
+                                file that has been included by another header file.
+                            </p>
+
+                        </div>
+
+                        <div class="part-content">
+                            <h2>The #include order of header files</h2>
+                            <p>
+                                If your header files are written properly and #include everything they need, the order of inclusion should 
+                                not matter. However, including your header files in a certain order can help surface mistakes where your 
+                                header files may not include everything they need.
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Best Practice</mark> - order your #includes as follows: your own user-defined headers first, 
+                                then 3rd party library headers, then standard library headers, with the headers in each section sorted alphabetically.
+                            </div>
+                            <p>
+                                That way, if one of your use-defined headers is missing an #include for a 3rd party library or standard library header, 
+                                it is more likely to cause a compile error so you can fix it.
+                            </p>
+                            <div class="lesson-practice">
+
+                                <mark>Header File Best Practice</mark>
+                                <ul>
+                                    <li>
+                                        Always include header guards
+                                    </li>
+                                    <li>
+                                        Do not define variables and functions in header files
+                                    </li>
+                                    <li>
+                                        Give your header files the same name as the source files they are associated with
+                                    </li>
+                                    <li>
+                                        Each header file should have a specific job, and be as independent as possible
+                                    </li>
+                                    <li>
+                                        Be mindful of which headers you need to explicitly include for the functionality 
+                                    </li>
+                                    <li>
+                                        Every header you write should compile on its own
+                                    </li>
+                                    <li>
+                                        Only #include what you need
+                                    </li>
+                                    <li>
+                                        Do not #include .cpp files.
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                         
+                        
+                        <div class="prev-next">
+                            <div class="prev-next-inline">
+                                <a class="nav-link" href="chapter2_11.html">
+                                    <div class="nav-button nav-button-next">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Next Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">2.11</span>
+                                                Header Guards
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="../cplusChapter.html">
+                                    <div class="nav-button nav-button-index">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-home" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Back to Table of Contents</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="chapter2_9.html">
+                                    <div class="nav-button nav-button-prev">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Previous Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">2.9</span>
+                                                Intoduction to the Preprocessor
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </section>
+    
+            <!-- Footer -->
+            <section class="footer">
+                <h4>About Us</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                <div class="icons">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-instagram-square"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <p>
+                    Made with <i class="fab fa-facebook-square"></i> Easy Tutorials
+                </p>
+            </section>
+
+         </div> <!--bg color End -->
+        
+
+
+     <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+     </script>
+     <script>
+        function show_hide(element)
+        {
+           var myAnswer = element.nextElementSibling;
+
+           var displaySetting = myAnswer.style.display;
+
+           var quizButton = element;
+
+           if(displaySetting=="inline-block"){
+               myAnswer.style.display = 'none';
+
+               quizButton.innerHTML = 'Show Solution';
+           }
+           else
+           {
+               myAnswer.style.display = 'inline-block';
+               quizButton.innerHTML = 'Hide Solution';
+           }
+        }
+    </script>
+    </body>

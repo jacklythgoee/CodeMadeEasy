@@ -1,0 +1,119 @@
+    <body>
+        <section class="sub-header">
+            <nav>
+                <div class="nav-links" id="navLinks">
+                    <i class="fas fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="home.php">HOME</a></li>
+                        <li><a href="about.php">ABOUT</a></li>
+                        <li><a href="course.php">COURSE</a></li>
+                        <li><a href="getStarted.php">GET STARTED</a></li>
+                        <li><a href="blog.php">BLOG</a></li>
+                        <li><a href="contact.php">CONTACT</a></li>
+                    </ul>
+                </div>
+                <i class="fas fa-bars" onclick="showMenu()"></i>
+            </nav>
+            <h1>Our Courses</h1>
+        </section>
+
+        <!-- Courses -->
+
+        <section class="course">
+            <h1>Courses We Offer</h1>
+            <p>
+                All of the courses we offer are for new programmers who dont have any previous knowledge of coding<BR>
+                So be ready to turn into a pro in no time!
+            </p>
+
+            <div class="row">
+                <div class="course-col">
+                    <h3>C++</h3>
+                    <p>
+                        C++ is the extended version of the C Language. This object-oriented language offers a clearer understanding of Various
+                        programs and helps develop high-performance applications that can be used on multiple platforms.
+                    </p>
+                </div>
+                <div class="course-col">
+                    <h3>C Language</h3>
+                    <p>
+                        C is a powerful general-purpose programming language. It can be used to develop software like operating systems, databases, compilers,
+                        and so on. C Programming is an excellent language to learn programming for begginers
+                    </p>
+                </div>
+                <div class="course-col">
+                    <h3>HTML5</h3>
+                    <p>
+                       The HyperText Markup Language is the standard markup language for documents to be displayed in a web browser.
+                       It can be assisted by other technoligies such as Cascading Style Sheets and Scripting Languages.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+<!-- Facilities -->
+
+        <section class="facilities">
+            <h1>People We Helped Become Who They Are Now</h1>
+            <p>Below is a list of people our turorials helped assist<br> in learning how to program</p>
+
+            <div class="row">
+                <div class="facilities-col">
+                    <img src="images/jason.png">
+                    <h3>Jason Turner</h3>
+                    <p>
+                        Jason is an award-winning C++ keynote speaker and trainer. He has spoken and provided training at more than 10
+                        conferences and 15 companies. Jason utilizes his C++ knowledge and unique training style of more than two
+                        decades to help organizations write clean, maintainable, and efficient programs. And He learnt all that at CodeHeads!
+                    </p>
+                </div>
+                <div class="facilities-col">
+                    <img src="images/wasik.png">
+                    <h3>Wasik Farhan-Roopkotha</h3>
+                    <p>
+                        Wasik is  Bangladeshis youngest C programmer in the world. At the age of 6 he was developing multiple games.
+                        And has now been given fundings by the <b>Technology Division</b> for creating a game about the liberation war of the country!
+                    </p>
+                </div>
+                <div class="facilities-col">
+                    <img src="images/mosh.png">
+                    <h3>Mosh Hamedani</h3>
+                    <p>
+                        Better known online as <b>Programming with Mosh</b>, is an Australien educational YouTuber
+                        and Software Engineer specializing in web application development. Most things he has learnt about the 
+                        HTML language has been From CodeHeads.<br>
+                        "CodeHeads has brought me where i am today, with over 2 million subscribers. I am constantly helping new people everyday with there future
+                        in programming. CodeHeads is a great place to learn Any language that they offer"
+                        
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer">
+            <h4>About Us</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+            <div class="icons">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-instagram-square"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+            <p>
+                Made with <i class="fab fa-facebook-square"></i> Easy Tutorials
+            </p>
+        </section>
+
+
+     <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+     </script>   
+    </body>

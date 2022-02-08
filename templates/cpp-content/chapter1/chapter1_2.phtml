@@ -1,0 +1,193 @@
+
+    <body>
+        <div class="bg-color"><!--bg color Start-->
+
+            <section class="top-bar">
+                <nav>
+                    <div class="nav-links" id="navLinks">
+                        <i class="fas fa-times" onclick="hideMenu()"></i>
+                        <ul>
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="../about.html">ABOUT</a></li>
+                            <li><a href="../course.html">COURSE</a></li>
+                            <li><a href="../getStarted.html">GET STARTED</a></li>
+                            <li><a href="../blog.html">BLOG</a></li>
+                            <li><a href="../contact.html">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <i class="fas fa-bars" onclick="showMenu()"></i>
+                </nav>
+            </section>
+            <section class="lesson-content">
+
+                <div class="lesson-container">
+                    <div class="content">
+                        <h1>Chapter 1.2 - Comments</h1>
+                        <hr>
+                        
+                        <div class="part-content">
+
+                            <p>
+                                A <b>comment</b> is a programmer-readable note that is inserted directly into the source code of the program. 
+                                Comments are ignored by the compiler and are for the programmers use only. In C++ there are two 
+                                different styles of comments, both of which serve the same purpose to help programmers.
+                            </p>
+
+                        </div>
+                        <div class="part-content">
+
+                            <h2>Single Line Comments</h2>
+                            <p>
+                                the “//” symbol begins a C++ single line comment, which tells the compiler to ignore everything after 
+                                the symbol to the end of the line. For example:
+                            </p>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        std::cout << "Hello World";     //Everything from here is ignored
+                                    </code>
+                                </pre>
+                            <p>
+                                Typically, the single line comment is used to make quick comments about a single line of code.
+                            </p>
+
+                                
+
+                        </div>
+                        <div class="part-content">
+                            <h2>Multi-line Comments</h2>
+                            <p>
+                                The /* and */ pair of symbols denotes a C-style multi-line comment. 
+                                Everything between these symbols is ignored. For example:
+                            </p>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        /*This is a Multi-line Comment.
+                                        This Line will be ignored
+                                        so will this one. */
+                                    </code>
+                                </pre>
+
+                                <div class="lesson-warning">
+                                    <p>
+                                        <mark>Warning</mark> – Using multi-line comments inside of other multi-line comments, 
+                                        can cause some issues with the compiler thinking that it is not a comment. Wrapping 
+                                        single-line comments in a multi-line is okay though.
+                                    </p>
+                                </div>
+                                <div class="lesson-practice">
+                                    <p>
+                                        <mark>Best Practice</mark> – comment your code liberally and write your commands as if you are
+                                        speaking to someone who has no idea what the code does. Do not assume you will 
+                                        remember why you made specific choices.
+                                    </p>
+                                </div>
+                            <p>
+                                It’s common for programmers to also comment out their code. A few reasons why you should do this are as follows:
+                                <ul>
+                                    <li>You are working on a new piece of code that will not compile yet</li>
+                                    <li>You have written code that cnompiles but not correctly, and you do not have time too fix it</li>
+                                    <li>You want to replace one piece of code with another, without having to delete the other section</li>
+                                    <li>You have written code that works fine, but you do not want to use it for now in your current execution of the program.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="prev-next">
+                            <div class="prev-next-inline">
+                                <a class="nav-link" href="chapter1_3.html">
+                                    <div class="nav-button nav-button-next">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Next Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">1.3</span>
+                                                Introuduction to Objects and Variables
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="../cplusChapter.html">
+                                    <div class="nav-button nav-button-index">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-home" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Back to Table of Contents</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="chapter1_1.html">
+                                    <div class="nav-button nav-button-prev">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Previous Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">1.1</span>
+                                                Statements & Structure of a Program
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </section>
+    
+            <!-- Footer -->
+            <section class="footer">
+                <h4>About Us</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                <div class="icons">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-instagram-square"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <p>
+                    Made with <i class="fab fa-facebook-square"></i> Easy Tutorials
+                </p>
+            </section>
+
+         </div> <!--bg color End -->
+        
+
+
+     <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+     </script>
+     <script>
+        function show_hide(element)
+        {
+           var myAnswer = element.nextElementSibling;
+
+           var displaySetting = myAnswer.style.display;
+
+           var quizButton = element;
+
+           if(displaySetting=="inline-block"){
+               myAnswer.style.display = 'none';
+
+               quizButton.innerHTML = 'Show Solution';
+           }
+           else
+           {
+               myAnswer.style.display = 'inline-block';
+               quizButton.innerHTML = 'Hide Solution';
+           }
+        }
+    </script>
+    </body>

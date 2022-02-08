@@ -1,0 +1,227 @@
+
+    <body>
+        <div class="bg-color"><!--bg color Start-->
+
+            <section class="top-bar">
+                <nav>
+                    <div class="nav-links" id="navLinks">
+                        <i class="fas fa-times" onclick="hideMenu()"></i>
+                        <ul>
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="../about.html">ABOUT</a></li>
+                            <li><a href="../course.html">COURSE</a></li>
+                            <li><a href="../getStarted.html">GET STARTED</a></li>
+                            <li><a href="../blog.html">BLOG</a></li>
+                            <li><a href="../contact.html">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <i class="fas fa-bars" onclick="showMenu()"></i>
+                </nav>
+            </section>
+            <section class="lesson-content">
+
+                <div class="lesson-container">
+                    <div class="content">
+                        <h1>Chapter 1.5 - Introduction to IOSTREAM: COUT, CIN, and ENDL</h1>
+                        <hr>
+
+                        <div class="part-content">
+                            <h2>The Input/Output Library</h2>
+                            <p>
+                                The <b>Input/Output library</b> (io library) is part of the C++ standard library that deals with basic input and output. 
+                                We will use the functionality in this library to get input from the keyboard and output data to the console. 
+                                The io part of iostream stands for input/output.
+                                To use the functionality defined within iostream library, we need to include the iostream header at the top of 
+                                the code file that uses the content defined in iostream, like so.
+                            </p>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        #include &#x3C;iostream&#x3E;
+                                    </code>
+                                </pre>                               
+
+                        </div>
+                        <div class="part-content">
+                            <h2>std::cout</h2>
+                            <p>
+                                the iostream library contains a few predefined variables for us to use. One of the most useful is <b>std::cout</b>, 
+                                which allows us to send data to the console to be printed as text. Cout stands for “character output”. 
+                            </p>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        #include &#x3C;iostream&#x3E;
+                                        
+                                        int main()
+                                        {
+                                            std::cout << "Hello World!";
+                                            return 0;
+                                        }
+                                    </code>
+                                </pre>
+                            <p>
+                                In this program, we have included iostream so that we have access to std::cout. Inside our main function, 
+                                we use std::cout, along with the <b>insertion operator</b> (<<), to send the text Hello World! To the console to be printed. 
+                            </p>
+                        </div>
+                        <div class="part-content">
+
+                            <h2>std::endl</h2>
+                            <p>
+                                Separate output statements do not result in separate lines of output on the console. If we want to print on 
+                                separate lines of output to the console, we need to tell the console when to move the cursor to the next line. 
+                                One way to do that is use std::endl. when you output with std::cout, std::endl prints a newline character to the console 
+                                ( causing the cursor to go to the start of the next line). In this context, endl stands for “end line”.<br>
+                                For Example:
+                            </p>                        
+                                <div class="split-content">
+                                    <pre class="content-half">
+                                        <code class="language-cpp line-numbers">
+                                            #include &#x3C;iostream&#x3E;
+                                            
+                                            int main()
+                                            {
+                                                std::cout << "Hi!" << std::endl;  //std::endl will cause the cursor to move to the next line of the console
+                                                std::cout << "My name is Alex." << std::endl;
+                                            }
+                                        </code>
+                                    </pre>
+                                    <img src="../../public/images/Chapter1/1_1/picture4.png" class="chap-1_1-picture4">
+                                </div>
+                        </div>
+                        <div class="part-content">
+                            <h2>std::cin</h2>
+                            <p>
+                                std::cin is another predefined variable that is defined in the iostream library. Whereas std::cout 
+                                prints data to the console using the insertion operator (<<), std::cin (which stands for character input) 
+                                reads input from the keyboard using the <b>extraction operator</b> (>>). The input must be stored in a variable to be used
+                            </p>
+                                <pre>
+                                    <code class="language-cpp line-numbers">
+                                        #include &#x3C;iostream&#x3E;
+                                        
+                                        int main()
+                                        {
+                                            std::cout << "Enter an Integer: ";
+                                            int x{};
+                                            std::cin >> x;
+                                            std::cout << "You entered the Integer " << x << std::endl;
+
+                                            return 0;
+                                        }
+                                    </code>
+                                </pre>
+                            <p>
+                                This is an easy way to get keyboard input from the user, and we use it in many of our examples going forward. 
+                                Note that you do not need to use ‘\n’ when accepting input, as the user will need to press the enter key to have 
+                                their input accepted, and this will move the cursor to the next line. 
+                            </p>
+                            <div class="lesson-practice">
+                                <mark>Best Practice</mark> - there is some debate over whether it’s necessary to initialize a variable immediately before 
+                                you give it a user provided value via another source (e.g., std::cin), since the user-provided value will just overwrite 
+                                the initialization value. In line with our previous recommendation that variables should always be initialized,
+                                 best practice is to initialize the variable first.
+                            </div>
+                        </div>
+ 
+                    </div>
+
+                        <div class="prev-next">
+                            <div class="prev-next-inline">
+                                <a class="nav-link" href="chapter1_6.html">
+                                    <div class="nav-button nav-button-next">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Next Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">1.6</span>
+                                                Uninitialized Variables and Undefined Behaviour
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="../cplusChapter.html">
+                                    <div class="nav-button nav-button-index">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-home" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Back to Table of Contents</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="chapter1_4.html">
+                                    <div class="nav-button nav-button-prev">
+                                        <div class="nav-button-icon">
+                                            <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nav-button-text">
+                                            <div class="nav-button-title">Previous Lesson</div>
+                                            <div class="nav-button-lesson">
+                                                <span class="nav-button-lesson-number">1.4</span>
+                                                Variable Assignment and Initialization
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </section>
+    
+            <!-- Footer -->
+            <section class="footer">
+                <h4>About Us</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                <div class="icons">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-instagram-square"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <p>
+                    Made with <i class="fab fa-facebook-square"></i> Easy Tutorials
+                </p>
+            </section>
+
+         </div> <!--bg color End -->
+        
+
+
+     <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+     </script>
+     <script>
+        function show_hide(element)
+        {
+           var myAnswer = element.nextElementSibling;
+
+           var displaySetting = myAnswer.style.display;
+
+           var quizButton = element;
+
+           if(displaySetting=="inline-block"){
+               myAnswer.style.display = 'none';
+
+               quizButton.innerHTML = 'Show Solution';
+           }
+           else
+           {
+               myAnswer.style.display = 'inline-block';
+               quizButton.innerHTML = 'Hide Solution';
+           }
+        }
+    </script>
+    </body>

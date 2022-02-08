@@ -1,0 +1,21 @@
+.cpp-chapter{
+    margin: auto;
+    width: 80%;
+    padding: 60px 0;
+    display: fixed;
+}
+.cpp-chapter-col{
+    width: 80%;
+    margin: auto;
+    border-radius: 8px;
+    padding: 0 11px 9px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 800px;
+    margin-bottom: 12px;
+}
+.cpp-chapter h1{
+    color: #111;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+}
