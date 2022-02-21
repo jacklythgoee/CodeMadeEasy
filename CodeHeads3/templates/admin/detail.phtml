@@ -1,0 +1,39 @@
+<?php require_once __DIR__ . '/../base.phtml'; ?>
+
+<body>
+    <div class="container">
+
+        <!-- Form Start -->
+        <form class="row g-3" id="surveyForm" action="<?= $data['action'] ?>" method="post">
+            <?php if (isset($data['record']['id'])): ?>
+                <input type="hidden" name="id" value="<?= $data['record']['id'] ?>"/>
+            <?php endif; ?>
+            <?php if (isset($data['currentPage'])): ?>
+                <input type="hidden" name="page" value="<?= $data['currentPage'] ?>"/>
+            <?php endif; ?>
+            <h1>Contact</h1>
+            <div class="col-md-12">
+                <label class="form-label">Contact Name</label>
+                <input type="text" class="form-control" id="contact_name" name="contact_name" value="<?= $data['record']['contact_name'] ?? '' ?>" placeholder="Enter Site Name" required>
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Contact Email</label>
+                <input type="text" class="form-control" id="contact_email" name="contact_email" value="<?= $data['record']['contact_email'] ?? '' ?>" placeholder="Enter Site Name" required>
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-control" id="contact_subject" name="contact_subject" value="<?= $data['record']['contact_subject'] ?? '' ?>" placeholder="Enter Site Name" required>
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Message</label>
+                <input type="text" class="form-control" id="contact_message" name="contact_message" value="<?= $data['record']['contact_message'] ?? '' ?>">
+            </div>
+        </form> <!--Form End -->
+        
+    </div>
+</body>
+
+<?php require_once __DIR__ . '/../footer.phtml'; ?>
