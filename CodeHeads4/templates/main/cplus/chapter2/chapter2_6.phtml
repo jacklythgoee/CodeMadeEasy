@@ -1,0 +1,173 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 2.6 - Forward Declarations and Definitions</h1>
+                <hr>
+                <div class="part-content">
+                    <p>
+                        If you were to call a function before it is defined. This will produce a complier error. 
+                        The reason of this is because the compiler compiles the contents of code files sequentially. If you 
+                        were to write a function after you call it, you would need to use a <b>forward declaration</b>. This allows us 
+                        to tell the compiler about the existence of an identifier before actually defining the identifier. 
+                    </p>
+                    <p>
+                        In the case of functions, this allows us to tell the compiler about the existence of a 
+                        function before we define the functions body. This way, when the compiler encounters a call to the 
+                        function, it will understand that we are making a function call and can check to ensure we are calling 
+                        the function correctly, even if it does not yet know how or where the function is defined.
+                    </p>
+                    <p>
+                        To write a forward declaration for a function, we use declaration statements called a 
+                        <b>function prototype</b>. The function prototype consists of the functions return type, name, 
+                        parameters, but no function body (the curly braces and everything in between them), terminated with a semi colon.
+                    </p>
+                    <p>
+                        Now when the compiler reaches the call to add in main, it will know what add looks like 
+                        (a function that takes two integer parameters and returns an integer), and it will not complain.
+                    </p>
+                    <div class="lesson-practice">
+                        <mark>Best Practice </mark>- when defining function prototypes, keep the parameter names. 
+                        You can easily create forward declarations by using copy/paste on your function declaration. 
+                        Do not forget the semi colon at the end.
+                    </div>
+                </div>
+
+                <div class="part-content">
+                    <h2>Declarations Vs Definitions</h2>
+                    <p>
+                        In C++, you will often hear the words “declaration” and “definition” used interchangeably.<br>
+                        A <b>definition</b> actually implements or instantiates the identifier. Here is an example.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                int add(int x, int y)   //Implements function add()
+                                {
+                                    int z{ x+y }; // Instantiates variables z
+                                    return z;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        A definition is needed to satisfy the <i>linker</i>. If you use an identifier without providing a definition, the linker will error.<br>
+                        The <b>one definition rule</b> is a well-known rule in C++. It has three parts:
+                    </p>
+                    <ul>
+                        <li>
+                            Within a given file, a function, object, type, or template can only have one definition
+                        </li>
+                        <li>
+                            Within a given program, an object or normal function can only have one definition. This distinction 
+                            is made because programs can have more than one file.
+                        </li>
+                        <li>
+                            Types, templates, inline functions, and variables are allowed to have identical definitions in different files 
+                        </li>
+                    </ul>
+                    <p>
+                        A <b>declaration</b> is a statement that tells the compiler about the existence of an identifier and its type information.  
+                    </p>
+                    <p>
+                        A declaration is all that is needed to satisfy the compiler. This is why we can use a forward declaration to tell the compiler 
+                        about an identifier that is not actually defined until later.
+                    </p>
+                    <p>
+                        In C++, all definitions are declarations, the converse is not true : all declarations are not definitions. 
+                        An example of this is the function prototype, it satisfies the compiler, but not the linker. These declarations 
+                        that are not definitions are called pure declarations. Other types of pure declarations include forward declarations for 
+                        variables and type declarations.
+                    </p>
+                    <p>
+                        The ODR does not apply to pure declarations, so you can have as many pure declarations for an 
+                        identifier as you desire, although having more than one is redundant.
+                    </p>
+                </div>
+
+                <div class="part-content quiz">
+                    <h2>Chapter 1.1 End of Topic Quiz</h2>
+                    <p>
+                        The following quiz is meant to reinforce your understanding of the material presented above.
+                    </p>
+<!-- --------------------------------------------------Question 1 Start --------------------------------------------------------------------------------- -->
+                    <h4 class="quiz-question">1. What is a funtion prototype?</h4>
+                    <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                    <p id="answer">
+                        A <b>function prototype</b> is a declaration statement that includes a functions name, return type, and parameters. 
+                        It does not include the function body.
+                    </p>
+                    <br><br><hr>
+
+<!-- ------------------------------------------------Question 2 Start --------------------------------------------------------------------------------- -->
+                    <h4 class="quiz-question">2. What is a forward declaration? </h4>
+                    <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                    <p id="answer">
+                        A <b>forward declaration</b> tells the compiler that an identifier exists before it is actually defined
+                    </p>
+                    <br><br><hr>
+
+<!-- ----------------------------------------------- Question 3 Start --------------------------------------------------------------------------------- -->
+                    <h4 class="quiz-question">3. How do we declare a forward declaration for functions?</h4>
+                    <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                    <p id="answer">
+                        For functions, a function prototype serves as a forward declaration. Other types of identifiers have a different syntax 
+                        for forward declaration.
+                    </p>
+                    <br><br><hr>
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="2_7.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.7</span>
+                                        Programs with Multiple Code Files
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="2_5.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.5</span>
+                                        Why functions are useful
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End --> 
+
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

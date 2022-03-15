@@ -1,0 +1,106 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.7 - Keywords and Naming Identifiers</h1>
+                <hr>
+                <div class="part-content">
+                    <h2>Keywords</h2>
+                    <p>
+                        C++ reserves a set of 92 words (as of C++20) for its own use. These words are called keywords, 
+                        and each of these <b>keywords</b> has a special meaning within C++.
+                    </p>
+                    <p>
+                        Below is a list of all the keywords through C++ 20:
+                    </p>
+                        <img src="../../img/Chapter1/picture5.png" class="chap-1_1-picture5">
+                    <p>
+                        C++ also defines special identifiers: override, final, import, and module. 
+                        These have a specific meaning when used in certain context but are not reserved.
+                    </p>
+                </div>
+                
+                <div class="part-content">
+                    <h2>Identifier Naming Rules</h2>
+                    <p>
+                        As a reminder, the name of a variable (or function, type, or other kind of item) is called an identifier. 
+                        C++ gives you a lot of flexibility to name identifiers as you wish. However, there are a few rules that 
+                        must be followed when naming identifiers.
+                    </p>
+                    <p>
+                        <ul>
+                            <li>
+                                The identifier cannot be a keyword. Keywords are reserved.
+                            </li>
+                            <li>
+                                The identifier can only be composed of letters (lower or upper case), 
+                                numbers and the underscore character. That means the name cannot contain symbols (except the underscore) nor 
+                                whitespace (spaces or tabs).
+                            </li>
+                            <li>
+                                The identifier must begin with a letter or an underscore. It cannot start with a number.
+                            </li>
+                            <li>
+                                C++ is case sensitive, and thus distinguishes between lower- and upper-case letters. nvalue is different 
+                                than nValue is different than NVALUE.
+                            </li>
+                        </ul> 
+                    </p>
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="1_8.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.8</span>
+                                        Whitespace and Basic Formatting
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_6.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.6</span>
+                                        Uninitialized Variables and Undefined Behaviour
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+ 
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

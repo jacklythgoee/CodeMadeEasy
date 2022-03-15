@@ -1,0 +1,95 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.8 - Whitespace and Basic Formatting</h1>
+                <hr>
+                <div class="part-content">
+                    <h2>Whitespace</h2>
+                    <p>
+                        Whitespace is a term that refers to characters that are used for formatting purposes. 
+                        In C++, this refers primarily to spaces, tabs, and newlines. The C++ compiler generally ignores whitespace, 
+                        with a few minor exceptions(when processing text literals). For this reason, we say that C++ is a whitespace-independent 
+                        language.<br>Consequently, the following statements do the same thing:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                std::cout << "Hello World!";
+                                std::cout << "Hello World!";
+                                std::cout << "Hello World!";
+
+                                std::cout
+                                    << "Hello World!";
+                                
+                            </code>
+                        </pre>
+                </div>
+                
+                <div class="part-content">
+                    <h2>Basic Formatting</h2>
+                    <p>
+                        Unlike some languages, C++ does not enforce any kind of formatting restrictions on the programmer 
+                        (remember, trust the programmer!). Many different methods of formatting C++ programs have been developed 
+                        throughout the years, and you will find disagreement on which are best. The best style are the ones that
+                        produce the most readable code and provide the most consistency. 
+                    </p>
+                    <div class="lesson-practice">
+                        <mark>Best Practice</mark> - Your lines should be no longer than 80 characters in length.
+                    </div>
+                </div>
+                
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="1_9.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.9</span>
+                                        Introduction to Literals and Operators
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_7.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.7</span>
+                                        Keywords and Naming Identifiers
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div><!-- Content End -->
+        </div><!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+    
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

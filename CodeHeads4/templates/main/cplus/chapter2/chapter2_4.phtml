@@ -1,0 +1,136 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 2.4 - Introduction to Local Scope</h1>
+                <hr>
+                <div class="part-content">
+                    <p>
+                        Function parameters, as well as variables defined inside the function body, are called <b>Local Variables</b>.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                int add(int x, int y)   //Functions parameters x and y are local variables
+                                {
+                                    int z{ x+y }; // z is a local variable too 
+                                    return z;
+                                }
+                            </code>
+                        </pre>
+                </div>
+
+                <div class="part-content">
+                    <h2>Local Variable Lifetime</h2>
+                
+                    <p>
+                        Previously, we have discussed how a variable definition such as int x; causes the variable 
+                        to be instantiated (created) when this statement is executed. Function parameters are created 
+                        and initialized when the function is entered, and variable with the function body are created and 
+                        initialized at the point of definition. For example:
+                    </p>
+                    
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                int add(int x, int y)   //x and y created and initialized here
+                                {
+                                    int z{ x+y }; // z created and initialized here
+                                    return z;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        The natural follow-up question is, “So when is an instantiated variable destroyed?”. Local variables are 
+                        destroyed in the opposite order of creation at the end of the set of curly braces in which it is defined 
+                        (or for a function parameter, at the end of the function).
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                int add(int x, int y)
+                                {
+                                    int z{ x + y};
+
+                                    return z;
+                                    // z, y, and x destroyed here
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        Much like a person’s lifetime is defined to be the time between their birth and death, 
+                        an objects lifetime is defined to be the time between its creation and destruction. 
+                        Note that variable creation and destruction happen when the program is running (called runtime), 
+                        not compile time. Therefore, lifetime is a runtime property.
+                    </p>
+                </div>
+
+                <div class="part-content">
+                    <h2>Local Scope</h2>
+                
+                    <p>
+                        An identifiers <b>scope</b> determines where the identifier can 
+                        be accessed within the source code. When an identifier can be accessed, 
+                        we say it is <b>in scope</b>. When an identifier cannot be accessed, we say it is <b>out of scope</b>. Scope 
+                        is a compile-time property and trying to use an identifier when it is not in scope will result in a compile error.
+                    </p>
+                    <p>
+                        A local variables scope begins at the point of declaration and stops at the end of the set of curly 
+                        braces in which they are defined. This ensures variables cannot be used before the point of definition 
+                        (even if the compiler opts to create them before then).
+                    </p>
+                </div>
+                    
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="2_5.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.5</span>
+                                        Why Functions are Useful
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="2_3.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.3</span>
+                                        Introduction to Function Parameters and Arguments
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+    
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

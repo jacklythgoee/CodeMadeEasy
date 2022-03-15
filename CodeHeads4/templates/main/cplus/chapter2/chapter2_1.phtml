@@ -1,0 +1,116 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 2.1 - Introduction to Functions</h1>
+                <hr>
+
+                <div class="part-content">
+                    <p>
+                        Previously, we defined a function as a collection of statements that execute sequentially. While that is certainly true, 
+                        that definition does not provide much insight into why functions are useful. A better definition would be:
+                    </p>
+                    <p>
+                        A <b>Function</b> is a reusable sequence of statements designed to do a particular job
+                    </p>
+                    <p>
+                        As already discussed, every C++ program must have a function named main. However, as programs start to 
+                        get longer and longer, putting all the code inside the main function becomes increasingly hard to manage. 
+                        Functions provide a way for us to split our programs into small, modular chunks that are easier to organize, 
+                        test, and use. Most programs use many functions. The C++ standard library comes with plenty of already written 
+                        functions for you to use. However, it’s just as common to write your own. Functions that you write yourself are 
+                        called <b>user-defined functions</b>.
+                    </p>
+                    <p>
+                        A program will be executing statements inside one function when it encounters a function call. A <b>function call</b> 
+                        is an expression that tells the CPU to interrupt the current function and execute another function. The CPU “puts 
+                        a bookmark” at the current point of execution, and then <b>calls</b> the function named in the function call. When the called 
+                        function ends, the CPU returns to the point it bookmarked, and resumes execution.
+                    </p>
+                    <p>
+                        The function initiating the function call is called the <b>caller</b>, and the function being called is the 
+                        <b>callee</b> or <b>called</b> function. Below is an example of how to call a function.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E; // for std::cout
+
+                                //Definition of user-defined function doPrint()
+                                void doPrint()
+                                {
+                                    std::cout << "In doPrint()\n";
+                                }
+
+                                //Definition of function main()
+                                int main()
+                                {
+                                    std::cout << "Starting main()\n";
+                                    doPrint();      //Interupt main() by making a function call to doPrint(). main() is the caller.
+                                    std::cout << "Ending main()\n"; // This statement is executed after doPrint() ends
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        You are also allowed to call the function as many times as you please. Just do not forget to include the parenthesis() 
+                        after the functions name when making a function call. Functions are also able to call any other function that is user-defined too.
+                    </p>
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="2_2.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.2</span>
+                                        Return Values
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../chapter1/1_X.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.X</span>
+                                        End of Chapter Summary and Quiz
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+    
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

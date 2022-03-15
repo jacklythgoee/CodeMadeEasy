@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px
+}
+body{
+    background-color: #6C8FB7 ;
+}
+
+/*------ Navigation Bar ------ */
+nav .fa-times, nav .fa-bars{/* Display Menu Show/Hide */
+    display: none;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+    flex: 1;
+    text-align: center;
+}
+
+.nav-links ul li{
+    list-style:  none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #1ED67D;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.logo-nav{
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,1);
+}
+
+/* ----Header Section -----*/
+.header{
+    height: 70vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../../img/background.png);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+h2{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+    font-size: 36px;
+    color: #121D5E;
+}
+
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 35%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.text-box p{
+    color: #fff;
+    font-size: 18px;
+}
+.text-box .hero-btn{
+    margin-top: 10px;
+}
+.text-box h1{
+    font-size: 62px;
+}
+
+
+
+/*------ Buttons ------ */
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid #111A54;
+    background: #111A54;
+    transition: 1s;
+    color:#fff;
+    border: 1px solid #fff;
+}
+
+/*------ Footer Section ------ */
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+
+}
+.footer p{
+    margin: 0px;
+}
+.icons .fab{
+    color: #fff;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+.footer a{
+    color: #fff;
+    text-decoration: none;
+}
+.footer a:hover{
+    color: #111;
+}
+
+
+
+@media(max-width: 700px){
+    .text-box h1{
+        font-size: 20px;
+    }
+    
+    .nav-links ul li{
+        display: block;
+
+    }
+    .nav-links{
+        position: fixed;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa-times, nav .fa-bars{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+
+    }
+    .logo-nav{
+        display: none;
+    }
+}

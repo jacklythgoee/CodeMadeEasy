@@ -1,0 +1,200 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 2.3 - Introduction to Function Parameters and Arguments</h1>
+                <hr>
+
+                <div class="part-content">
+                    <p>
+                        In many cases, it is useful to be able to pass information to a function being called, 
+                        so that the function has data to work with. For example, if we wanted to write a function 
+                        to add two numbers, we need some way to tell the function which two numbers to 
+                        add when we call it. Otherwise, how would the function know what to add? We do 
+                        that via function <b>parameters and arguments</b>.
+                    </p>
+                    <p>
+                        A <b>function parameter</b> is a variable used in a function. Function parameters work almost identically to 
+                        variables defined inside the function, but with one difference: they are always initialized with a value provided 
+                        by the caller of the function.
+                    <p>
+                        Function parameters are defined in the function declaration by placing 
+                        them between the parenthesis after the function identifier, with multiple 
+                        parameters being separated by commas.
+                    </p>
+                    <p>
+                        An Argument  is a value that is passed from the caller to the function when a function 
+                        is made, note that these are separated by commas:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                void doPrint();  // This call has no arguments
+                                printValue(6);      //the 6 is the argument passed to function printValue()
+                                add(2,3);       // 2 and 3 are the arguments passed to function add()
+
+                            </code>
+                        </pre>
+                    <p>
+                        When a function is called, all the parameters of the function are created as variables, 
+                        and the value of each of the arguments is copied into the matching parameter: 
+                        this process is called <b>pass by value.</b>
+                    </p>
+                    
+                        <div class="split-content">
+                            <pre>
+                                <code class="language-cpp line-numbers">
+                                    #include &#x3C;iostream&#x3E;
+
+                                    // This function has two integer parameters, one named x, and one named y
+                                    // The values of x and y are passed in by the caller
+
+                                    void printValues(int x, int y)
+                                    {
+                                        std::cout << x << '\n';
+                                        std::cout << y << '\n';
+                                    }
+                                    
+                                    int main()
+                                    {
+                                        printValues(6,7);   // This function call has two arguments, 6 and 7
+
+                                        return 0;
+                                    }
+                                </code>
+                            </pre>
+                            <p class="split-content-middle">
+                                When function <i>printValue’s</i> is called with arguments 6 and 7, <i>printValue’s</i> parameter x is created and 
+                                initialized with the value of 6, and <i>printValue’s</i> parameter y is created and initialized with the value of 7.
+                            </p>
+                        </div>
+
+                </div>
+
+                <div class="part-content">
+                    <h2>Warning about Function argument order of evaluation</h2>
+                
+                    <p>
+                        The C++ Specification does not define whether arguments are matched with parameters in left 
+                        to right order or right to left order. When copying values, order is of no consequence. However, 
+                        if the arguments are function calls, then this can be problematic.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                someFunction(a(), b());     //a() or b() may be called first
+                            </code>
+                        </pre>
+                    <p>
+                        If the architecture evaluates left to right, a() will be called before b(). 
+                        If the architecture evaluates right to left, b() will be called before a(). 
+                        This may or may not be of consequence, depending on what a() and b() do. If it is 
+                        important that one argument evaluate first, you should explicitly define the order of execution like so:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                int avar{ a() };    // a() will always be called first
+                                int bvar{ b() };    // b() will always be called second
+                            </code>
+                        </pre>
+
+                    <div class="lesson-warning">
+                        <mark>Warning</mark>the C++ Specification does not define whether 
+                        function calls evaluate arguments left to right or right to left. 
+                        Take care not to make function calls where argument order matters.
+                    </div>
+                </div>
+
+                <div class="part-content">
+                    <h2>How parameters and return values work together</h2>
+                    <p>
+                        By using both parameters and return a value, we can create functions that take data as input, 
+                        do some calculation with it, and return the value to the caller.<br>
+                        Here is an example of a very simple function that adds two numbers together and returns the result to the caller:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E; 
+
+                                //add() takes two integers as parameters, and returns the result of their sum 
+                                //The values of x and y are determined by the function that calls add()
+                                int add(int x, int y)
+                                {
+                                    return x + y;
+                                }
+
+                                //main takes no parameters
+                                int main{
+                                    std:: cout << add(4, 5) << '\n'; //Arguments 4 and 5 are passed to function add()
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        Execution starts at the top of the main function. When add(4,6) is evaluated, function add is 
+                        called, with the parameter x being initialized with the value of 4, and parameter y being initialized 
+                        with 5. The return statement in function add evaluates x+y to produce the value 9, which is then returned 
+                        to main. this value of 9 is then printed to the console.
+                    </p>
+                    <h5>Conclusion</h5>
+                    <p>
+                        Function parameters and return values are the key mechanisms by which functions can be written in a 
+                        reusable way, as it allows us to write functions that can perform tasks and return retrieved or calculated 
+                        results back to the caller without knowing what the specific inputs or outputs are ahead of time.
+                    </p>
+                </div>
+                     
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="2_4.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.4</span>
+                                        Introduction to Local Scope
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="2_2.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.2</span>
+                                        Return Values
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+      
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

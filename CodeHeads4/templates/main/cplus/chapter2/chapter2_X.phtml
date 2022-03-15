@@ -1,0 +1,298 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 2 - Summary and Quiz</h1>
+                <hr>
+                <div class="part-content">
+                    <p>
+                        A <b>function</b> is a reusable sequence of statements designed to do a particular job. 
+                        Functions you write yourself are called <b>user-defined</b> functions.
+                    </p>
+                    <p>
+                        A <b>function call</b> is an expression that tells the CPU to execute a function. The function 
+                        initiating the function call is the <b>caller</b>, and the function being called is the <b>callee</b> or <b>called</b>
+                        function. Do not forget to include parenthesis when making a function call.
+                    </p>
+                    <p>
+                        The curly braces and statements in a function definition are called the <b>function body</b>.
+                    </p>
+                    <p>
+                        The <b>return type</b> of a function indicates the type of value that the function will return. The 
+                        <b>return statement</b> determines the specific <b>return value</b> that is returned to the caller. 
+                        This process is called <b>return by value</b>. Functions can have a return type of <b>void</b> if they 
+                        do not return a value to the caller. Failure to return a value from a non-void function will result in undefined behavior.
+                    </p>
+                    <p>
+                        The return value from function main is called a <b>status code</b>, and it tells the operating system whether your 
+                        program executed successfully or not. By consensus, a return value of 0 means success, 
+                        and a positive return value means failure.
+                    </p>
+                    <p>
+                        A <b>function parameter</b> is a variable used in a function where the value is provided by the caller. 
+                        An <b>argument</b> is the specific value passed from the caller to the function. When an argument is copied 
+                        into the parameter, this is called <b>pass by value</b>.
+                    </p>
+                    <p>
+                        C++ does not define whether function calls evaluate arguments left to right or vice-versa.
+                    </p>
+                    <p>
+                        Function parameters and variables defined inside the function body are called <b>local variables</b>. The 
+                        time in which a variable exists is called its <b>lifetime</b>. Variables are created and destroyed at 
+                        <b>runtime</b>, which is when the program is running. A variables <b>scope</b> determines where it can be accessed. 
+                        When a variable can be accessed, we say it is in <b>scope</b>. When it cannot be accessed, we say it is <b>out 
+                        of scope</b>. Scope is a <b>compile-time</b> property, meaning it is enforced at compile time.
+                    </p>
+                    <p>
+                        <b>Refactoring</b> is the process of breaking down a larger function into many smaller, simpler functions.
+                    </p>
+                    <p>
+                        <b>Whitespace</b> refers to characters used for formatting purposes. In C++, this includes spaces, tabs, and newlines
+                    </p>
+                    <p>
+                        A <b>forward declaration</b> allows us to tell the compiler about the existence of an identifier 
+                        before actually defining the identifier. To write a forward declaration for a function, we 
+                        use a <b>function prototype</b>, which includes the functions return type, name, and parameters, but not function body.
+                    </p>
+                    <p>
+                        A <b>definition</b> actually implements or instantiates  an identifier. A declaration is a statement that tells the 
+                        compiler about the existence of the identifier. In C++, all definitions serve as declarations. <b>Pure declarations</b>
+                        are declarations that are not also definitions such as function prototypes 
+                    </p>
+                    <p>
+                        Most non-trivial programs contain multiple files
+                    </p>
+                    <p>
+                        When two identifiers are introduced into the same program in a way that the compiler or linker 
+                        cannot tell them apart, the compiler or linker will produce a <b>naming collision</b>. A <b>namespace</b> 
+                        guarantees that all identifiers  within the namespace are unique. The std namespace is one such namespace.
+                    </p>
+                    <p>
+                        The <b>preprocessor</b> is a process that runs on the code before it is compiled. <b>Directives</b> are special instructions 
+                        to the preprocessor. Directives start with a # symbol and end with a newline. A <b>macro</b> is a rule that defines how 
+                        input text is converted to a replacement output text.
+                    </p>
+                    <p>
+                        <b>Header files</b> are files designed to propagate declarations to code files. When using the #include directive is 
+                        replaced by the other contents of the included file. When including headers, use angled brackets when including 
+                        system headers, and use double quotes when including user-defined headers. When including system headers, 
+                        include the versions with no .h extension if they exist.
+                    </p>
+                    <p>
+                        <b>Header guards</b> prevent the contents of a header from being included more than once into a given code file. 
+                        They do not prevent the contents of a header from being included into multiple different code files. 
+                    </p>
+                </div>
+
+                <div class="part-content quiz">
+                    <h2>Chapter 2 End of Chapter Quiz</h2>
+                    <p>
+                        Be sure to use your editors auto-formatting feature to keep your formatting consistent and make your code 
+                        easier to read
+                    </p>
+<!-- --------------------------------------------------Question 1 Start --------------------------------------------------------------------------------- -->
+                    <h4 class="quiz-question">
+                        1. Write a single-file program (named main.cpp) that reads two separate integers 
+                        from the user, adds them together, and then outputs the answer. The program should use three functions:
+                    </h4>
+                    <ul>
+                        <li>A function named “readNumber” should be used to get (and return) a single integer from the user.</li>
+                        <li>
+                            A function named “writeAnswer” should be used to output the answer. This function should take a single parameter and have no return value.
+                        </li>
+                        <li>A main() function should be used to glue the above functions together.</li>
+                    </ul>
+                    <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                    <div id="answer">
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+
+                                    int readNumber()
+                                    {
+                                        std::cout << "Enter a number: ";
+                                        int x {};
+                                        std::cin >> x;
+                                        return x;
+                                    }
+                                    
+                                    void writeAnswer(int x)
+                                    {
+                                        std::cout << "The answer is " << x << '\n';
+                                    }
+                                    
+                                    int main()
+                                    {
+                                        int x { readNumber() };
+                                        int y { readNumber() };
+                                        writeAnswer(x + y); // using operator+ to pass the sum of x and y to writeAnswer()
+                                        return 0;
+                                    }
+                            </code>
+                        </pre>
+                    </div>
+                    <br><br><hr>
+
+<!-- ------------------------------------------------Question 2 Start --------------------------------------------------------------------------------- -->
+                    <h4 class="quiz-question">
+                        2. Modify the program you wrote in exercise #1 so that readNumber() and writeAnswer() live in a separate file called “io.cpp”. 
+                        Use a forward declaration to access them from main(). 
+                    </h4>
+                    <p>
+                        If you’re having problems, make sure “io.cpp” is properly added to your project so it gets compiled.
+                    </p>
+                    <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                    <div id="answer">
+                        <h3>io.cpp</h3>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+
+                                    int readNumber()
+                                    {
+                                        std::cout << "Enter a number: ";
+                                        int x {};
+                                        std::cin >> x;
+                                        return x;
+                                    }
+                                    
+                                    void writeAnswer(int x)
+                                    {
+                                        std::cout << "The answer is " << x << '\n';
+                                    }
+                            </code>
+                        </pre>
+                        <h3>main.cpp</h3>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                // these are the forward declarations for the functions in io.cpp
+                                int readNumber();
+                                void writeAnswer(int x);
+
+                                int main()
+                                {
+                                    int x { readNumber() };
+                                    int y { readNumber() };
+                                    writeAnswer(x+y);
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+
+                    </div>
+                    <br><br><hr>
+<!-- ------------------------------------------------Question 2 Start --------------------------------------------------------------------------------- -->
+                    <h4 class="quiz-question">
+                        Modify the program you wrote in #2 so that it uses a header file (named io.h) to access the functions 
+                        instead of using forward declarations directly in your code (.cpp) files. Make sure your header file uses header guards.
+                    </h4>
+                    <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                    <div id="answer">
+                        <h3>io.h</h3>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #ifndef IO_H
+                                #define IO_H
+
+                                int readNumber();
+                                void writeAnswer(int x);
+
+                                #endif
+                            </code>
+                        </pre>
+                        <h3>io.cpp</h3>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include "io.h"
+                                #include  &#x3C;iostream&#x3E;
+
+                                int readNumber()
+                                {
+                                    std::cout << "Enter a number: ";
+                                    int x {};
+                                    std::cin >> x;
+                                    return x;
+                                }
+
+                                void writeAnswer(int x)
+                                {
+                                    std::cout << "The answer is " << x << '\n';
+                                }
+                            </code>
+                        </pre>
+                        <h3>main.cpp</h3>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include "io.h"
+
+                                int main()
+                                {
+                                    int x { readNumber() };
+                                    int y { readNumber() };
+                                    writeAnswer(x+y);
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+
+                    </div>
+                    <br><br><hr>
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="#">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">.</span>
+                                        More Content Soon
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="2_12.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.10</span>
+                                        Header files
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section><!-- Lesson Content End -->
+
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

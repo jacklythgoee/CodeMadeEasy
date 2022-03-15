@@ -1,0 +1,321 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 2.9 - Intoduction to the Preprocessor</h1>
+                <hr>
+
+                <div class="part-content">
+                    <p>
+                        When you compile your code, you might expect that the compiler compiles the code 
+                        exactly as you have written it. This actually is not the case. Prior to compilation, 
+                        the code file goes through a phase known as <b>translation</b>. Many things happen in the translation phase 
+                        to get your code ready to be compiled. A code file with translations applied to it is called a <b>translation unit</b>.
+                    </p>
+                    <p>
+                        The most noteworthy of the translation phases involves the preprocessor. The preprocessor is 
+                        best thought of a separate program that manipulates the test in each code file. When the preprocessor 
+                        runs, it scans through the code file from top to bottom, looking for preprocessor directives. 
+                        <b>Preprocessor directives</b> (often just called directives) are instructions that start with a # 
+                        symbol and end with a newline. These directives tell the preprocessor to perform specific particular 
+                        text manipulation tasks.<br>
+                        The output of the preprocessor goes through several translation phases and then is compiled. 
+                        Note that the preprocessor does not modify the original code files in any way.
+                    </p>
+
+                </div>
+                <div class="part-content">
+                    <h2>Includes</h2>
+                    <p>
+                        We have already seen the #include directive in action. When you #include a file, 
+                        the preprocessor replaces the #include directive with the contents of the included file. 
+                        The included contents are then preprocessed along with the rest of the file and then compiled.
+                    </p>
+
+                </div>
+                <div class="part-content">
+
+                    <h2>Macro Defines</h2>
+                    <p>
+                        The #define  directive can be used to create a macro. In C++, a <b>macro</b> is a rule that defines 
+                        how input text is converted into replacement output text. There are two basic types of macros: 
+                        <b>object-like</b> macros, and <b>function-like</b> macros
+                    </p>
+                    <p>
+                        Function-like macros act like functions and serve a similar purpose. We will not 
+                        discuss them here, because their use is generally considered dangerous, and almost 
+                        anything they can do can be done by a normal function. Object-like macros can be defined 
+                        in one of two ways:
+                    </p>
+                    <p>
+                        <i>#define identifier</i>
+                    </p>
+                    <p>
+                        <i>#define identifier substitution_text</i>
+                    </p>
+                    
+                </div>
+                <div class="part-content">
+                    
+                    <h2>Object-like Macros with Substitution Text</h2>
+                    <p>
+                        when the preprocessor encounters this directive, any further occurrence of the identifier 
+                        is replaced by substitution_text. The identifier is traditionally typed in all capital letters, 
+                        using underscores to represent spaces.
+                    </p>
+                    
+                    <h3>Consider the following program:</h3>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+
+                                #define MY_NAME "Alex"
+
+                                int main()
+                                {
+                                    std::cout << "My name is: " << MY_NAME;
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    
+
+                    <h3>The Preprocessor converts the example above into the below example</h3>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                // The contents of iostream are inserted here
+                                int main()
+                                {
+                                    std::cout << "My name is: " << "Alex";
+
+                                    return 0;
+                                }
+
+                            </code>
+                        </pre>
+                    <p>
+                        Which when run, prints the output <code>My name is: Alex</code>
+                    </p>
+                    <p>
+                        Object-like macros were used as a cheaper alternative to constant variables. Those times are long 
+                        gone as compilers got smarter and the language grew. Object-like macros should only be seen in legacy 
+                        code anymore. I recommend avoiding these kinds of macros altogether, as there are better ways to do this kind of thing.
+                    </p>
+
+                </div>
+                <div class="part-content">
+                    <h2>Object-like macros without substitution text</h2>
+                    <p>
+                        Object-like macros can also be defined without substitution text. For example: 
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #define USE_YEN
+                            </code>
+                        </pre>
+                    <p>
+                        Macros of this form work like you might expect: any further occurrence of the identifier 
+                        is removed and replaced by nothing. This might seem pretty useless, and it is useless for doing 
+                        text substitution. However, that is not what this form of the directive is generally used for. 
+                        Unlike object-like macros with substitution text, macros of this form are generally considered acceptable to use.
+                    </p>
+                </div>
+                <div class="part-content">
+                    <h2>Conditional Compilation</h2>
+                    <p>
+                        the conditional compilation preprocessor directives allow you to specify under what conditions 
+                        something will or will not compile. There are quite a few different conditional compilation directives, 
+                        but we will only cover the three that are used by far the most here: #ifdef, #ifndef, and #endif.
+                    </p>
+                    <p>
+                        The #ifdef preprocessor directive allows the preprocessor to check whether an identifier 
+                        has been previously #defined. If so, the code between the #ifdef and matching #endif is compiled. 
+                        If not, the code is ignored.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+                                #define PRINT_JOE
+
+                                int main()
+                                {
+                                    #ifdef PRINT_JOE
+                                        std::cout << "Joe\n"; //if PRINT_JOE is defined, compile this code
+                                    #endif
+
+                                    #ifdef PRINT_BOB
+                                        std::cout << "Bob\n"; // if PRINT_BOB is defined, compile this Code
+                                    #endif
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        Because PRINT_JOE has been #defined, the line cout << “Joe\n” will be compiled. 
+                        Because PRINT_BOB has not been defined, the line cout << “bob\n” will be ignored.
+                    </p>
+                    <p>
+                        #ifndef is the opposite of #ifdef, in that it allows you to check 
+                        whether an identifier has NOT been #defined yet.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+
+                                int main()
+                                {
+                                    #ifdef PRINT_BOB
+                                        std::cout << "Bob\n"; 
+                                    #endif
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        This program prints “Bob”, because PRINT_BOB was never #defined. <br>
+                        In place of #ifdef PRINT_BOB and #ifndef PRINT_BOB, you will also see #if defined(PRINT_BOB)
+                        and #if !defined(PRINT_BOB). 
+                        These do the same task, but slightly more C++ style syntax.
+                    </p>
+                </div>
+                <div class="part-content">
+                    <h2>#IF 0</h2>
+                    <p>
+                        One more common use of conditional compilation involves using #if 0 to exclude a block of code from 
+                        being compiled (as it were inside a comment block):
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+
+                                int main()
+                                {
+                                    std::cout << "Joe\n";
+                                #if 0 // Do not compile anything starting here
+                                    std::cout << "Bob\n";
+                                    std::cout << "Steve\n";
+                                #endif  //Untill this point
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        The above code only prints “Joe”, because “Bob” and “Steve” were inside 
+                        an #if 0 block that the preprocessor will exclude from compilation. This provides a 
+                        convenient way to “comment out” code that contains multi-line comments. 
+                    </p>
+                </div>
+                <div class="part-content">
+
+                    <h2>Object-Like Macros do not affect other Preprocessor directives</h2>
+                    <ul>
+                        <li>
+                            define PRINT_JOE
+                        </li>
+                        <li>
+                            #ifdef PRINT JOE
+                        </li>
+                    </ul>
+                    <p>
+                        Since we defined PRINT_JOE to be nothing, how come the preprocessor did not replace PRINT_JOE 
+                        in #ifdef PRINT_JOE with nothing? Macros only cause text substitution for normal code. Other 
+                        preprocessor commands are ignored. Consequently, the PRINT_JOE in #ifdef PRINT_JOE is left alone.
+                    </p>
+                        
+                </div>
+                <div class="part-content">
+                    <p>
+                        Directives are resolved before compilation, from top to bottom 
+                        on a file-by-file basis. Consider the following program:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+
+                                void foo()
+                                {
+                                    #define MY_NAME "Alex"
+                                }
+
+                                int main()
+                                {
+                                    std::cout << "My name is: " << MY_NAME;
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        Even though it looks like #define MY_NAME “Alex” is defined inside function foo, 
+                        the preprocessor will not notice, as it does not understand C++ Concepts like functions. 
+                        Therefore, this program  behaves identically to one where #define MY_NAME “Alex” was defined 
+                        either before or immediately after function foo. For general readability, you will generally 
+                        want to #define identifiers outside the functions.
+                    </p>
+                    <p>
+                        Once the preprocessor has finished, all defined identifiers from that file are discarded. This means 
+                        that directives are only valid from the point of definition to the end of the file in which they are 
+                        defined. Directives defined in one code file do not have impact on other code files in the same project.
+                    </p>
+
+                </div>
+                    
+                    
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="2_10.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.10</span>
+                                        Header Files
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="2_8.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.8</span>
+                                        Naming Collisions and an Introduction to Namespaces
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+ 
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

@@ -1,0 +1,148 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 2.5 - Why functions are useful</h1>
+                <hr>
+
+                <div class="part-content">
+                    <p>
+                        New programmers will often ask “Can’t you just put all the code in the main function”. 
+                        For simple programs, this would be the easiest and simplest way to complete your project. 
+                        However, functions provide a number of benefits that make them extremely useful in programs of non-trivial length or complexity.
+                    </p>
+                    <ul>
+                        <li>
+                            <b>Organization</b> – As programs grow in complexity, having all the code live inside the 
+                            main function becomes increasingly complicated. A function is almost like a mini program that we 
+                            can write separately from the main program, without having to think about the rest of the program 
+                            while we write it. This allows us to reduce a complicated program into smaller, more manageable chunks, 
+                            which reduces the overall complexity of our program.
+                        </li>
+                        <li>
+                            <b>Reusability</b> – Once a program is written, it can be called multiple times from within the 
+                            program. This avoids duplicated code (“DON’T REPEAT YOURSELF”) and minimizes the probability of 
+                            copy/paste errors. Functions can also be shared with other programs, reducing the amount of code 
+                            that has to be written from scratch each time.
+                        </li>
+                        <li>
+                            <b>Testing</b> – Because functions reduce code redundancy, there is less code to test in the 
+                            first place. Also, because functions are self-contained, once we have tested a function to ensure 
+                            it works, we don’t need to test it again unless we change it. This reduces the amount of code we 
+                            have to test at one time, making it much easier to find bugs or avoid them in the first place.
+                        </li>
+                        <li>
+                            <b>Extensibility</b> – When we need to extend our program to handle a case it did not handle before, 
+                            functions allow us to make the change in one place and have that change take effect time the function is called.
+                        </li>
+                        <li>
+                            <b>Abstraction</b> – In order to use a function, you only need to know its name, inputs, 
+                            outputs, and where it lives. You do not need to know how it works, or what other code its 
+                            dependent upon to use it. This lowers the amount of knowledge required to use other people’s code 
+                            (including the standard library).
+                        </li>
+                    </ul>
+                </div>
+                <div class="part-content">
+                    <h2>Effectively Using Functions</h2>
+                    <p>
+                        One of the biggest challenge’s new programmers encounter (besides learning the language) is 
+                        understanding when and how to use functions effectively. Here are a few basic guidelines for writing functions:
+                    </p>
+                    <ul>
+                        <li>
+                            Statements that appear more than once in a program should generally be made into a function. 
+                            For example, if we are reading input from the user multiple times in the same way, that is a great 
+                            candidate for a function. If we output something in the same way multiple times, that is also a great 
+                            candidate for a function.
+                        </li>
+                        <li>
+                            Code that has a well-defined set of inputs and outputs is a good candidate for a function, particularly 
+                            if it is complicated. For example, if we have a list of items that we want to sort, the code to do the 
+                            sorting would make a great function, even if is only done once. The input is the unsorted list, 
+                            and the output is the sorted list.
+                        </li>
+                        <li>
+                            A function should generally perform one and only one task.
+                        </li>
+                        <li>
+                            When a function becomes too long, too complicated, or hard to understand, it can be split unto 
+                            multiple sub-functions. This is called refactoring.
+                        </li>
+                    </ul>
+                    <p>
+                        Typically, when learning C++, you will write a lot of programs that involve 3 subtasks:
+                    </p>
+                    <ul>
+                        <li>
+                            Reading inputs from the user
+                        </li>
+                        <li>
+                            Calculating a value from the inputs
+                        </li>
+                        <li>
+                            Printing the calculated value
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="part-content">
+
+                </div>
+                    
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="2_6.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.6</span>
+                                        Forward Declarations and Definitions
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="2_4.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.4</span>
+                                        Introduction to Local Scope
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

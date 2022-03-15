@@ -1,0 +1,199 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../cplusNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.X - Chapter Summary and Quiz </h1>
+                <hr>
+                <div class="part-content">
+                    <h2>Quick Summary</h2>
+                    <p>
+                        A <b>statement</b> is a type of instruction that causes the program to perform some action. Statements are often terminated by a semicolon.
+                    </p>
+                    <p>
+                        A <b>function</b> is a collection of statements that execute sequentially. Every C++ program must include a 
+                        special function named main. When you run your program, execution starts at the top of the main function.
+                    </p>
+                    <p>
+                        The rules that govern how elements of the C++ language are constructed is called a <b>syntax</b>. A <b>syntax 
+                        error</b> occurs when you violate the grammatical rules of the language.
+                    </p>
+                    <p>
+                        <b>Comments</b> allow the programmer to leave notes in the code. C++ supports two types of comments. Line comments 
+                        start with a // and run to the end of the line. Block comments start with a /* and go to the paired */ symbol. 
+                        Don’t nest comments.<br>
+                        You can use comments to temporarily disable lines or sections of code. This is called commenting out your code.
+                    </p>
+                    <p>
+                        Data is any sequence of symbols that can be interpreted to mean something. A single piece of data, stored somewhere in memory is called a value.
+                    </p>
+                    <p>
+                        A variable is a named piece of memory that we can use to store values. A variable’s name is called an <b>identifier</b>. 
+                        In order to create a variable, we use a statement called a <b>definition statement</b>. When the program is run, each defined variable 
+                        is <b>instantiated</b>, which means it is assigned a memory address.
+                    </p>
+                    <p>
+                        A <b>data type</b> tells the compiler how to interpret a piece of data into a meaningful value. An integer is a number that can be written without a 
+                        fractional component, such as 4, 27, 0, -2, or -12.
+                    </p>
+                    <p>
+                        <b>Copy assignment</b> (via operator=) can be used to assign an already created variable a value.
+                    </p>
+                    <p>
+                        <b>Initialization</b> can be used to give a variable a value at the point of creation. C++ supports 3 types of initialization: copy initialization, direct initialization, 
+                        and uniform initialization (also called list initialization or brace initialization).<br>
+                        You should prefer uniform initialization over the other initialization forms, and prefer initialization over assignment.<br>
+                        Although you can define multiple variables in a single statement, it’s better to define and initialize each variable on its own line, in a separate statement.
+                    </p>
+                    <p>
+                        <b>std::cout</b> and operator<< allow us to output an expression to the console as text. std::endl outputs a new line character, forcing the console cursor to move to the next line.<br>
+                        <b>std::cin</b> and operator>> allow us to get a value from the keyboard.
+                    </p>
+                    <p>
+                        A variable that has not been given a value is called an <b>uninitialized variable</b>. Trying to get the value of an uninitialized variable will result in <b>undefined behavior</b>, which can manifest 
+                        in any number of ways.
+                    </p>
+                    <p>
+                        C++ reserves a set of names called <b>keywords</b>. These have special meaning within the language and may not be used as variable names.
+                    </p>
+                    <p>
+                        A <b>literal constant</b> is a fixed value inserted directly into the source code. Examples are 5 and “Hello world!”.
+                    </p>
+                    <p>
+                        An <b>operation</b> is a mathematical calculation involving zero or more input values, called <b>operands</b>. The specific operation to be performed is denoted by 
+                        the provided <b>operator</b>. The result of an operation produces an output value.
+                    </p>
+                    <p>
+                        <b>Unary</b> operators take one operand. <b>Binary</b> operators take two operands, often called left and right. 
+                        <b>Ternary</b> operators take three operands.
+                    </p>
+                    <p>
+                        An <b>expression</b> is a combination of literals, variables, operators, and function calls that are evaluated to
+                        produce a single output value. The calculation of this output value is called <b>evaluation</b>. The value produced is the 
+                        <b>result</b> of the expression.
+                    </p>
+                    <p>
+                        An <b>expression statement</b> is an expression that has been turned into a statement by placing a semicolon at the end of the expression.
+                    </p>
+                    <p>
+                        Programming is hard, and your programs will rarely come out perfect (or close to it) the first time. Get your programs working first, 
+                        then refine them into something great.
+                    </p>
+                    
+                </div>
+                <div class="part-content quiz">
+
+                    <h2>Chapter 1 End of Topic Quiz</h2>
+                    <p>
+                        The following quiz is meant to reinforce your understanding of the material presented above.
+                    </p>
+<!-- --------------------------------------------------Question 1 Start --------------------------------------------------------------------------------- -->
+                        <h4 class="quiz-question">1. What is the difference between initialization and assignment?</h4>
+                        <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                        <p id="answer">
+                            Initialization provides a variable with an initial value (at the point of creation). 
+                            Assignment gives a variable a new value after the variable has already been defined.
+
+                        </p>
+                        <br><br><hr>
+
+<!-- ------------------------------------------------Question 2 Start --------------------------------------------------------------------------------- -->
+                        <h4 class="quiz-question">2. When does undefined behavior occur? What are the consequences of undefined behavior?</h4>
+                        <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                        <p id="answer">
+                            Undefined behavior occurs when the programmer does something that is ill-specified by the C++ language. 
+                            The consequences could be almost anything, from crashing to producing the wrong answer to working correctly anyway.
+                        </p>
+                        <br><br><hr>
+<!-- ------------------------------------------------Question 3 Start --------------------------------------------------------------------------------- -->
+                        <h4 class="quiz-question">
+                            2. Write a program that asks the user to enter a number, and then enter a second number. 
+                            The program should tell the user what the result of adding and subtracting the two numbers is.<br>
+                            The output of the program should match the following (assuming inputs of 6 and 4):
+                            <img src="../../img/Chapter1/picture11.png" class="chap-1_1-picture11">
+                        </h4>
+                        <button onclick="show_hide(this)" class="quiz-button">Show Solution</button>
+                        <div id="answer">
+                            <pre>
+                                <code class="language-cpp line-numbers">
+                                    #include &#x3C;iostream&#x3E;
+                                        int main()
+                                        {
+                                            int x{};
+                                            std::cout << "Enter an integer: ";
+                                            std::cin >> x;
+
+                                            int y{};
+                                            std::cout << "Enter another integer: ";
+                                            std::cin >> y;
+
+                                            std::cout << x << " + " << y << " is " << x + y << ".\n";
+                                            std::cout << x << " - " << y << " is " << x - y << ".\n";
+
+                                            return 0;
+                                        }
+                                </code>
+                            </pre>
+
+                        </div>
+                        <br><br><hr>                               
+
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="../chapter2/2_1.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">2.1</span>
+                                        Introduction to Functions
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../cplusChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_11.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.11</span>
+                                        Developing your First Program
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+        
+        
+            </div> <!-- Content End -->
+        </div><!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+    
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>
