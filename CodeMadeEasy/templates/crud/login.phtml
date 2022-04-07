@@ -1,0 +1,19 @@
+<?php require_once __DIR__ . '/../base.phtml'; ?>
+
+<body>
+		<form autocomplete="off" class="box" action="login.php" method="post">
+			<h1>Login</h1>
+			<div class="ErrorMessage">
+				<?php if (isset($data['error'])): ?>
+				<div class="error"><?= $data['error'] ?></div>
+				<?php endif; ?>
+			</div>
+
+			<input type="text" name="username" placeholder="Username">
+			<input type="password" name="password" placeholder="Password">
+			<input type="submit" name="" value="Login">
+		</form>
+</body>
+
+<?php require_once __DIR__ . '/footer.phtml'; ?>
+

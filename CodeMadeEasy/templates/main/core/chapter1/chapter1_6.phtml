@@ -1,0 +1,96 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../coreNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.6 - Data Types</h1>
+                <hr>
+                <div class="part-content">
+                    <p>
+                        Because all data on a computer is just a sequence of bits, we use a data type (often called a “type” for 
+                        short) to tell the compiler how to interpret the contents of memory in some meaningful way. You have already 
+                        seen one example of a data type: the integer. When we declare a variable as an integer, we are telling the 
+                        compiler “The piece of memory that this variable uses are going to be interpreted as an integer value”.
+                    </p>
+                    <p>
+                        When you give an object a value, the compiler and CPU take care of encoding your value into the appropriate sequence of bits 
+                        for that data type, which are then stored in memory (remember: memory can only store bits) for example, if you assign an 
+                        integer object the value 65, that value is converted to the sequence of bits 0100 0001 and stored in the memory assigned to the object.
+                    </p>
+                    <p>
+                        Conversely, when the object is evaluated to produce a value, that sequence of bits is reconstituted back into the original value. 
+                        Meaning that 0100 0001 is converted back into the value 65. Fortunately, the compiler and CPU do all the hard work here, so you 
+                        generally do not need to worry about how values get converted into bit sequences and back, all you need to do is pick a data type 
+                        for your object that best matches your desired use.
+                    </p>
+
+                </div>
+
+                <div class="part-content">
+                    <h2>Fundamental Data Types</h2>
+                    <p>
+                        C++ comes with built-in support for many different data types. These are called fundamental Data Types, but are often called basic types, 
+                        primitive types, or built-in types.
+                    </p>
+                    <p>
+                        Here is a list of the fundamental data types, some of which you have already seen:
+                    </p>
+                    <!-- IMAGE  IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE IMAGE -->
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="1_7.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.7</span>
+                                        Keywords and Naming Identifiers
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../coreChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_5.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.5</span>
+                                        Inputting and Outputting
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div> <!-- Content Start -->
+        </div> <!-- Lesson Container End -->
+    </section> <!-- Lesson Content End -->
+    
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

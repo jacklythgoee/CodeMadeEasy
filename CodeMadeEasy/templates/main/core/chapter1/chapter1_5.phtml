@@ -1,0 +1,160 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../coreNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.5 - Inputting and Outputting</h1>
+                <hr>
+                <div class="part-content">
+                    <h2>The Input/Output Library</h2>
+                    <p>
+                        Input and output is terminology referring to the communication between a computer program and its user. Input is the user giving 
+                        something to the program, while output is the program giving something to the user.<br>
+                        
+                        In C++ we use the IO Library, it is part of the C++ standard library that deals with basic input and outputs. We will use the 
+                        functionality of this library to get input from the keyboard and then output data to the console. 
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+                            </code>
+                        </pre>                               
+                </div>
+
+                <div class="part-content">
+                    <h2>std::cout</h2>
+                    <p>
+                        Iostream library contains a few predefined variables for us to use. One of the most useful is std::cout, which allows us to 
+                        send data to the console to be printed as text. Cout stands for character output.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+                                
+                                int main()
+                                {
+                                    std::cout << "Hello World!";
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        In this specific program we have included iostream so that we have access to std::cout. We use std::cout, along with the 
+                        insertion operator. To send the text Hello world to the console to be printed.
+                    </p>
+                </div>
+
+                <div class="part-content">
+                    <h2>std::endl</h2>
+                    <p>
+                        Separate output statements do not result in separate lines of out on the console in C++. If we want to print on separate 
+                        lines of output to the console, we need to tell the console when to move the cursor to the next line.<br>
+
+                        One way to do this is the use of std::endl, when you output with std::cout, std::endl prints a newline character to the console. 
+                        In this context, endl stands for “end line” For example
+                    </p>                        
+                        <div class="split-content">
+                            <pre class="content-half">
+                                <code class="language-cpp line-numbers">
+                                    #include &#x3C;iostream&#x3E;
+                                    
+                                    int main()
+                                    {
+                                        std::cout << "Hi!" << std::endl;  //std::endl will cause the cursor to move to the next line of the console
+                                        std::cout << "My name is Alex." << std::endl;
+                                    }
+                                </code>
+                            </pre>
+                            <img src="../../img/core/Chapter1/picture4.png" class="chap-1_1-picture4">
+                        </div>
+                </div>
+
+                <div class="part-content">
+                    <h2>std::cin</h2>
+                    <p>
+                        Std:cin is another predefined variable that is defined in IOSTREAM. Whereas std::cout prints data to the console using the insertion 
+                        operator, std::cin reads input from the keyboard using the extraction operator. The input must be stored in a variable to be used.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+                                
+                                int main()
+                                {
+                                    std::cout << "Enter an Integer: ";
+                                    int x{};
+                                    std::cin >> x;
+                                    std::cout << "You entered the Integer " << x << std::endl;
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        This is an easy way to get keyboard input from the user, and we use it in many of our examples going forward. Note that you do not 
+                        need to use newline when accepting input, as the user will need to press the enter key to have their input accepted, and 
+                        this will move the cursor to the next line. 
+                    </p>
+                    <div class="lesson-practice">
+                        <mark>Best Practice</mark> -  There is some debate over whether it is necessary to initialize a variable 
+                        immediately before you give it to a user provided value via another source, since the user-provided value 
+                        will just overwrite the initialization value. 
+                    </div>
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="1_6.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.6</span>
+                                        Data Types
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../coreChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_4.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.4</span>
+                                        Variable Assignment and Initialization
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div> <!-- Content Start -->
+        </div> <!-- Lesson Container Start -->
+    </section> <!-- Lesson Content End -->
+    
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

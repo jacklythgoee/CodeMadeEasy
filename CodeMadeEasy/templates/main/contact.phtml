@@ -1,0 +1,82 @@
+<?php require_once __DIR__ . '/../base.phtml';?>
+<?php require_once __DIR__ . '/nav.phtml';?>
+
+<body>
+
+    <div class="text-box">
+        <h1>Contact us</h1>
+    </div>
+    </section>
+
+<!--------- Contact Page ------------------>
+    <section class="contact-us">
+        <div class="row2">
+            <div class="contact-col">
+                <div>
+                    <i class="fas fa-home"></i>
+                    <span>
+                        <h5>Beacon Business Park, Classeq House</h5>
+                        <p>Stafford ST18 0YG</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <span>
+                        <h5>+ 01889 272307</h5>
+                        <p>Monday to Friday, 9am to 5pm</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <span>
+                        <h5>info@codemadeeasy.com</h5>
+                        <p>Email Us Your Query</p>
+                        <p>
+                            We will get back to you as soon as we can!
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <div class="contact-col">
+                <h5>Contact Us</h5>
+                <form action="<?= $data['action'] ?>" method="post">
+
+                    <?php if (isset($data['flash']['message'])): ?>
+                        <div class="alert alert-<?= $data['flash']['type'] ?? 'success' ?>" role="alert">
+                            <?= $data['flash']['message'] ?>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <input type="text" maxLength="30" name="contact_name" id="contact_name" placeholder="Enter Your Name" value="<?= $data['record']['contact_name'] ?? '' ?>" required>
+                    <input type="email" maxLength="50" name="contact_email" id="contact_email" placeholder="Enter Email Address" value="<?= $data['record']['contact_email'] ?? '' ?>"required>
+                    <input type="text" maxLength="30" name="contact_subject" id="contact_subject" placeholder="Enter Your Subject" value="<?= $data['record']['contact_subject'] ?? '' ?>"required>
+                    <textarea rows="4" maxLength="255" onkeyup="numberOfCharacters('mytextbox',255,'characterLimit');" name="contact_message" id="mytextbox" placeholder="Message (255 Characters)"required></textarea>
+                    
+                    <div class="chars">
+                        <span id="characterLimit">255</span>
+                    </div>    
+                    
+
+                    <button type="submit" class="hero-btn">Send Message</button>
+
+                </form> 
+            </div>
+        </div>
+    </section>
+
+    <section class="location">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5911.3279283414695!2d-2.0801207309592846!
+        3d52.81854094298012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a0d3572d4247f%3A0x1804dbf38631615b!
+        2sClasseq%20Glass%20%26%20Dishwashing%20Systems%20Ltd!5e1!3m2!1sen!2suk!4v1646240244224!5m2!1sen!2suk" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+</body>
+<script src="/js/showHide.js"></script>
+<script src="/../../js/charCount.js"></script>    
+<?php require_once __DIR__ . '/footer.phtml';?>
+
+
+
+
+

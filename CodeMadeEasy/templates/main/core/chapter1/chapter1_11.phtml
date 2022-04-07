@@ -1,0 +1,100 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../coreNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.11 - For Loops</h1>
+                <hr>
+                <div class="part-content">
+                    <p>
+                        A for loop is used to repeat a specific block of code a known number of times. For example, if we want to 
+                        check the grade of every student in the class, we loop from 1 to that number. When the number of times is not 
+                        known beforehand, we can use something called a while loop which will be discussed at a later date.
+                    </p>
+                    <h2>Syntax</h2>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                for (statement 1; statement 2; statement 3){
+                                    // Code block to be executed
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        <b>Statement 1</b> - Is executed (one time) before the execution of the code block.
+                        <b>Statement 2</b> - Defines the condition for executing the code block.
+                        <b>Statement 3</b> - Is executed (every time) after the code block has been executed.
+                    </p>
+                    <p>
+                        The example below will print the numbers 0 to 4:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                for (int i = 0; i < 5; i++){
+                                    std::cout << i << "\n";
+                                }
+                            </code>
+                        </pre>
+                    <h2>Example Explained</h2>
+                    <p>
+                        <b>Statement 1</b> sets a variable before the loop starts (int i = 0).
+                        <b>Statement 2</b> defines the confition for the loop to run (i must be less than 5). If the condition is true, the loop will start over again.
+                        if it is false, the loop will end.
+                        <b>Statement 3 increases a value (i++) each time the code block in the loop has executed </b>
+                    </p>
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="1_12.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.12</span>
+                                        Boolean
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../coreChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_10.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.10</span>
+                                        Expressions
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End-->
+    </section> <!-- Lesson Content End -->
+        
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

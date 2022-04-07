@@ -1,0 +1,103 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../coreNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.14 - Why Functions are Useful</h1>
+                <hr>
+                <div class="part-content">
+                    <p>
+                        New programmers will often ask “Can’t you just put all the code in the main function”. For simple programs, 
+                        this would be the easiest and simplest way to complete your project. However, functions provide a number of 
+                        benefits that make them extremely useful in programs of non-trivial length or complexity.
+                    </p>
+                    <p>
+                        <ul>
+                            <li>
+                                Organization – As programs grow in complexity, having all the code live inside the main function becomes 
+                                increasingly complicated. A function is almost like a mini program that we can write separately from the main 
+                                program, without having to think about the rest of the program while we write it. This allows us to reduce a 
+                                complicated program into smaller, more manageable chunks, which reduces the overall complexity of our program.
+                            </li>
+                            <li>
+                                Reusability – Once a program is written, it can be called multiple times from within the program. This 
+                                avoids duplicated code (“DON’T REPEAT YOURSELF”) and minimizes the probability of copy/paste errors. 
+                                Functions can also be shared with other programs, reducing the amount of code that has to be written from scratch each time.
+                            </li>
+                            <li>
+                                Testing – Because functions reduce code redundancy, there is less code to test in the first place. Also, 
+                                because functions are self-contained, once we have tested a function to ensure it works, we don’t need to 
+                                test it again unless we change it. This reduces the amount of code we have to test at one time, making it 
+                                much easier to find bugs or avoid them in the first place.
+                            </li>
+                            <li>
+                                Extensibility – When we need to extend our program to handle a case it did not handle before, functions allow us to 
+                                make the change in one place and have that change take effect time the function is called.
+                            </li>
+                            <li>
+                                Abstraction – In order to use a function, you only need to know its name, inputs, outputs, and where it lives. 
+                                You do not need to know how it works, or what other code its dependent upon to use it. This lowers the amount of 
+                                knowledge required to use other people’s code (including the standard library).
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+
+
+
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="1_15.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.15</span>
+                                        More on Functions
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../coreChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_13.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.13</span>
+                                        IF Statements
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End-->
+    </section> <!-- Lesson Content End -->
+        
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

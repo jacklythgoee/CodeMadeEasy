@@ -1,0 +1,167 @@
+<?php require_once __DIR__ . '/../../../base.phtml'; ?>
+<?php require_once __DIR__ . '/../coreNavLesson.phtml'; ?>
+
+<body>
+
+    <section class="lesson-content"> <!-- Lesson Content Start -->
+        <div class="lesson-container"> <!-- Lesson Container Start -->
+            <div class="content"> <!-- Content Start -->
+                <h1>Chapter 1.12 - Boolean</h1>
+                <hr>
+                <div class="part-content">
+                    <p>
+                        In real-life, it is common to ask or be asked questions that can be answered with “yes” or “no”. “is an 
+                        apple some fruit?” Yes. “Do you like asparagus?” No.
+                    </p>
+                    <p>
+                        Now consider a similar statement that can be answered with a “True” or “False”: “Apples are some fruit”. It is clearly true. 
+                        Or how about, “I like asparagus”, absolutely false.
+                    </p>
+                    <p>
+                        These kinds of sentences that have only two possible outcomes: yes/true, or no/false are so common, that many programming 
+                        languages include a special type for dealing with them. That type is called a Boolean type (Note: Boolean is properly 
+                        capitalized in the English language because it is named after its inventor, George Boole).
+                    </p>
+                </div>
+
+                <div class="part-content">
+                    <h2>Boolean Variables</h2>
+                    <p>
+                        Boolean variables are variables that can have only two possible values: true, and false. To declare a Boolean variable, we use the keyword bool.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                bool b;
+                            </code>
+                        </pre>
+                    <p>
+                        to intialize or assign a true or false value to a boolean variable, we use the keyword true and false.
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                bool b1 { true };
+                                bool b2 { false };
+                                b1 = false;
+                                bool b3 {}; // Default initialize to false
+                            </code>
+                        </pre>
+                    <p>
+                        Just as the unary minus operator (-) can be used to make an integer negative, the logical NOT operator (!) 
+                        can be used to flip Boolean value from true to false, or false to true:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                bool b1 { !true }; //b1 will be initialized with the value false
+                                bool b2 { !false }; //b2 will be initialized with the value true
+                            </code>
+                        </pre>
+                    <p>
+                        Boolean values are not actually stored in Boolean variables as the words “true” or “false”. Instead, they are stored as 
+                        integers 1: true becomes the integer 1, and false becomes the integer 0. Similarly, when Boolean values are evaluated, 
+                        they do not actually evaluate too “true” or “false”. They evaluate to the integers, because Booleans actually store integers, 
+                        they are considered an integral type.
+                    </p>
+                </div>
+                
+                <div class="part-content">
+                    <h2>Boolean Return Values</h2>
+                    <p>
+                        Boolean values are often used as the return values for functions that check whether something is true or not. Such 
+                        functions are typically named starting with the word is (e.g., isEqual) or has (e.g., hasCommonDivisor).
+                    </p>
+                    <p>
+                        Consider the following example, which is quite similar to the above:
+                    </p>
+                        <pre>
+                            <code class="language-cpp line-numbers">
+                                #include &#x3C;iostream&#x3E;
+
+                                //returns true if x and y are equal, false otherwise
+                                bool isEqual(int x, int y)
+                                {
+                                    return (x == y); //Operator == returns true if x equals y, and false otherwise
+                                }
+                                int main()
+                                {
+                                    std::cout << "Enter an integer: ";
+                                    int x{};
+                                    std:: cin >> x;
+
+                                    std::cout << "Enter another integer: ";
+                                    int y{};
+                                    std::cin >> y;
+
+                                    std::cout << std::boolalpha; //prints bools as true or false
+
+                                    std::cout << x << " and " << y << "are equal?";
+                                    std::cout << isEqual(x,y); //will return true or false
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    <img src="../../img/Chapter1/picture5.png" class="chap-1_1-picture5">
+                    <p>
+                        How does this work? First we read in integer values for x and y. Next, the expression “isEqual(x,y)” is evaluated, producing 
+                        the value true. The value true is returned back to the caller to be printed by std::cout. In the second run, the 
+                        call to isEqual(6,4) returns the value false.
+                    </p>
+                    <p>
+                        Boolean values take a little bit of getting used to, but once you get your mind wrapped around them, 
+                        they are quite refreshing in their simplicity! Boolean values are also a huge part of the language – 
+                        you will end up using them more than all the other fundamental types put together!
+                    </p>
+                </div>
+
+                <div class="prev-next">
+                    <div class="prev-next-inline">
+                        <a class="nav-link" href="1_13.php">
+                            <div class="nav-button nav-button-next">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Next Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.13</span>
+                                        IF Statements
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="../coreChapter.php">
+                            <div class="nav-button nav-button-index">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Back to Table of Contents</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="nav-link" href="1_11.php">
+                            <div class="nav-button nav-button-prev">
+                                <div class="nav-button-icon">
+                                    <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav-button-text">
+                                    <div class="nav-button-title">Previous Lesson</div>
+                                    <div class="nav-button-lesson">
+                                        <span class="nav-button-lesson-number">1.11</span>
+                                        For Loops
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+            </div> <!-- Content End -->
+        </div> <!-- Lesson Container End-->
+    </section> <!-- Lesson Content End -->
+        
+<script src="/../js/quiz.js"></script>
+
+</body>
+
+<?php require_once __DIR__ . '/../../footer.phtml'; ?>

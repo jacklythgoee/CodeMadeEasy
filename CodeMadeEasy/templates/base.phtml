@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="...">
+    <title><?= $data['title'] ?? '' ?></title>
+    <!-- prism -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CDNSFree2/PrismJS@latest/prism.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/CDNSFree2/PrismJS@latest/prism.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- Bootstrap Core Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <?php if(isset($data['extra_css'])): ?>
+        <?php foreach($data['extra_css'] as $css): ?>
+            <link rel="stylesheet" type="text/css" href="<?= filter_var($css, FILTER_VALIDATE_URL) ? $css : '../css/admin/' . $css ?>" >
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if(isset($data['extra_css1'])): ?>
+        <?php foreach($data['extra_css1'] as $css1): ?>
+            <link rel="stylesheet" type="text/css" href="<?= filter_var($css1, FILTER_VALIDATE_URL) ? $css1 : '/../css/main/' . $css1 ?>" >
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if(isset($data['extra_css2'])): ?>
+        <?php foreach($data['extra_css2'] as $css2): ?>
+            <link rel="stylesheet" type="text/css" href="<?= filter_var($css2, FILTER_VALIDATE_URL) ? $css2 : '../css/main/core/' . $css2 ?>" >
+        <?php endforeach; ?>
+    <?php endif; ?>
+    
+    <?php if(isset($data['extra_css3'])): ?>
+        <?php foreach($data['extra_css3'] as $css3): ?>
+            <link rel="stylesheet" type="text/css" href="<?= filter_var($css3, FILTER_VALIDATE_URL) ? $css3 : '/../css/main/core/' . $css3 ?>" >
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+
+    
+
+</head>
